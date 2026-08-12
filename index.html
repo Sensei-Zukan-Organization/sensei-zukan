@@ -19,6 +19,8 @@
             --color-j: #a855f7;
             --color-c: #3b82f6;
             --color-all: #64748b;
+            --header-height-pc: 92px; /* ロゴ微調整に伴いヘッダー高さを微調整 */
+            --header-height-sp: 70px;
         }
 
         * {
@@ -31,28 +33,21 @@
             font-family: 'Inter', 'Noto Sans JP', sans-serif;
             background-color: #f8fafc;
             color: var(--text-main);
-            padding-top: 100px;
+            padding-top: var(--header-height-pc);
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto 3rem;
-            padding: 2rem 1rem;
-            background-color: transparent;
-            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            min-height: calc(100vh - var(--header-height-pc));
             position: relative;
         }
 
         .header-section {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
-
-            .header-section h1 {
-                font-family: 'Shippori Mincho', serif;
-                font-size: 2.5rem;
-                margin-bottom: 1.5rem;
-            }
 
         /* --- 検索バーのスタイル --- */
         .search-container {
@@ -60,15 +55,20 @@
             margin: 0 auto;
             position: relative;
             width: 100%;
+            display: none;
         }
+
+            .search-container.active {
+                display: block;
+            }
 
         .search-icon {
             position: absolute;
-            left: 20px;
+            left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            width: 18px;
-            height: 18px;
+            width: 22px;
+            height: 22px;
             object-fit: contain;
             opacity: 0.6;
             pointer-events: none;
@@ -77,7 +77,7 @@
 
         .search-input {
             width: 100%;
-            padding: 14px 20px 14px 50px;
+            padding: 12px 20px 12px 48px;
             font-size: 1rem;
             border: 2px solid #e2e8f0;
             border-radius: 50px;
@@ -93,17 +93,16 @@
                 box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             }
 
-        /* --- カード全体の基本スタイル --- */
+        /* --- カードグリッド（PC標準：5列） --- */
         .teacher-grid {
             display: grid;
-            /* デフォルト（PC）は1行5列 */
             grid-template-columns: repeat(5, 1fr);
-            gap: 1rem;
+            gap: 1.25rem;
         }
 
         .teacher-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
             border: 1px solid #eef2f6;
             text-decoration: none;
@@ -111,15 +110,14 @@
             transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
             .teacher-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.08);
             }
 
-            /* 学科ごとのバナー背景色 */
             .teacher-card[data-dept="機械工学科"] .card-banner {
                 background: linear-gradient(135deg, var(--color-m), #b91c1c);
             }
@@ -146,22 +144,22 @@
             }
 
         .card-banner {
-            height: 70px;
+            height: 65px;
         }
 
         .card-body {
             padding: 0 0.75rem 1.25rem;
             text-align: center;
-            margin-top: -40px;
+            margin-top: -35px;
         }
 
         .card-icon-wrap {
-            width: 80px;
-            height: 80px;
+            width: 72px;
+            height: 72px;
             border-radius: 50%;
             background: white;
             padding: 3px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -180,12 +178,13 @@
             font-family: 'Shippori Mincho', serif;
             font-size: 1.1rem;
             margin-bottom: 0.2rem;
+            word-break: break-all;
         }
 
         .card-dept {
             font-size: 0.75rem;
             color: var(--text-muted);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem;
             display: block;
         }
 
@@ -198,14 +197,14 @@
 
         .tag {
             font-size: 0.65rem;
-            padding: 0.2rem 0.5rem;
+            padding: 0.2rem 0.4rem;
             border-radius: 4px;
             font-weight: 500;
             background: #f1f5f9;
             color: var(--text-muted);
         }
 
-        /* --- 上部ナビゲーション --- */
+        /* --- 上部ナビゲーション (PC) --- */
         .top-nav {
             position: fixed;
             top: 0;
@@ -214,13 +213,13 @@
             z-index: 1000;
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            height: 100px;
+            height: var(--header-height-pc);
         }
 
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
             height: 100%;
             display: flex;
             justify-content: space-between;
@@ -234,8 +233,9 @@
             text-decoration: none;
         }
 
+        /* 先生図鑑ロゴアイコン（72pxへ微調整） */
         .nav-logo {
-            height: 70px;
+            height: 72px;
             width: auto;
             object-fit: contain;
         }
@@ -244,87 +244,142 @@
             display: flex;
             height: 100%;
             align-items: center;
-            flex-wrap: nowrap;
         }
 
         .nav-item {
-            font-size: 1.02rem;
+            font-size: 1rem;
             text-decoration: none;
             color: #4b5563;
             padding: 0 16px;
             white-space: nowrap;
-            height: 100px;
+            height: var(--header-height-pc);
             display: flex;
             align-items: center;
             font-weight: 500;
             transition: all 0.2s ease;
-            border-bottom: 4px solid transparent;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
         }
 
-            .nav-item:hover {
+            .nav-item:hover, .dropdown:hover > .nav-item {
                 background: #f8fafc;
             }
 
-            /* アクティブカラー指定 */
-            .nav-item[data-target="all"].active {
-                background-color: #f1f5f9 !important;
-                color: #334155 !important;
-                border-bottom-color: var(--color-all) !important;
+            .nav-item.active {
+                background-color: #f1f5f9;
+                color: #334155;
+                border-bottom-color: var(--color-all);
             }
 
-            .nav-item[data-target="機械工学科"].active {
-                background-color: #fff5f5 !important;
-                color: #b91c1c !important;
-                border-bottom-color: var(--color-m) !important;
+        .nav-search-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+            object-fit: contain;
+            opacity: 0.8;
+        }
+
+        .dropdown {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+            .dropdown-menu a {
+                color: #4b5563;
+                padding: 12px 18px;
+                text-decoration: none;
+                display: block;
+                font-size: 0.92rem;
+                transition: all 0.2s ease;
+                border-left: 4px solid transparent;
             }
 
-            .nav-item[data-target="電気情報工学科"].active {
-                background-color: #fffbeb !important;
-                color: #c2410c !important;
-                border-bottom-color: var(--color-e) !important;
-            }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
 
-            .nav-item[data-target="電子制御工学科"].active {
-                background-color: #f0fdf4 !important;
-                color: #15803d !important;
-                border-bottom-color: var(--color-d) !important;
-            }
+        /* --- 学科一覧ドロップダウン hover / active --- */
+        .dropdown-menu a.dept-m:hover,
+        .dropdown-menu a.dept-m.active {
+            background-color: #fff5f5;
+            color: #b91c1c;
+            border-left-color: var(--color-m);
+            font-weight: bold;
+        }
 
-            .nav-item[data-target="情報工学科"].active {
-                background-color: #faf5ff !important;
-                color: #7e22ce !important;
-                border-bottom-color: var(--color-j) !important;
-            }
+        .dropdown-menu a.dept-e:hover,
+        .dropdown-menu a.dept-e.active {
+            background-color: #fffbeb;
+            color: #c2410c;
+            border-left-color: var(--color-e);
+            font-weight: bold;
+        }
 
-            .nav-item[data-target="環境・建設工学科"].active {
-                background-color: #eff6ff !important;
-                color: #1d4ed8 !important;
-                border-bottom-color: var(--color-c) !important;
-            }
+        .dropdown-menu a.dept-d:hover,
+        .dropdown-menu a.dept-d.active {
+            background-color: #f0fdf4;
+            color: #15803d;
+            border-left-color: var(--color-d);
+            font-weight: bold;
+        }
 
-            .nav-item[data-target="人文科学科"].active,
-            .nav-item[data-target="数理科学科"].active {
-                background-color: #f8fafc !important;
-                color: #475569 !important;
-                border-bottom-color: var(--color-all) !important;
-            }
+        .dropdown-menu a.dept-j:hover,
+        .dropdown-menu a.dept-j.active {
+            background-color: #faf5ff;
+            color: #7e22ce;
+            border-left-color: var(--color-j);
+            font-weight: bold;
+        }
 
-        /* ハンバーガーボタン */
+        .dropdown-menu a.dept-c:hover,
+        .dropdown-menu a.dept-c.active {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            border-left-color: var(--color-c);
+            font-weight: bold;
+        }
+
+        .dropdown-menu a.dept-h:hover,
+        .dropdown-menu a.dept-h.active,
+        .dropdown-menu a.dept-s:hover,
+        .dropdown-menu a.dept-s.active {
+            background-color: #f8fafc;
+            color: #475569;
+            border-left-color: #94a3b8;
+            font-weight: bold;
+        }
+
+        /* --- ハンバーガーボタン --- */
         .menu-toggle {
             display: none;
             flex-direction: column;
             justify-content: space-between;
-            width: 30px;
-            height: 20px;
+            width: 26px;
+            height: 18px;
             background: transparent;
             border: none;
             cursor: pointer;
-            z-index: 110000;
+            z-index: 100005;
         }
 
             .menu-toggle span {
                 width: 100%;
-                height: 3px;
+                height: 2.5px;
                 background-color: var(--text-main);
                 border-radius: 2px;
                 transition: all 0.3s ease;
@@ -339,41 +394,48 @@
             }
 
             .menu-toggle.open span:nth-child(3) {
-                transform: translateY(-9px) rotate(-45deg);
+                transform: translateY(-7.5px) rotate(-45deg);
             }
 
-
-        /* ==========================================================
-   【レスポンシブ設定】
-========================================================== */
-
-        /* --- 1. タブレット＆スマホ (1024px以下) --- */
+        /* レスポンシブ対応 (タブレット・スマホ) */
         @media (max-width: 1024px) {
+            body {
+                padding-top: var(--header-height-sp);
+            }
+
             .container {
                 padding: 1.5rem 1rem;
+                min-height: calc(100vh - var(--header-height-sp));
             }
 
-            /* タブレットは3列表示で余裕を持たせる */
+            .top-nav {
+                height: var(--header-height-sp);
+            }
+
+            /* スマホ表示での先生図鑑ロゴ（54pxへ微調整） */
+            .nav-logo {
+                height: 54px;
+            }
+
             .teacher-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 0.85rem;
+                gap: 1rem;
             }
 
-            /* ハンバーガーメニュー有効化 */
             .menu-toggle {
                 display: flex;
             }
 
             .nav-links {
                 position: fixed;
-                top: 100px;
+                top: var(--header-height-sp);
                 left: 100%;
                 width: 100%;
-                height: calc(100vh - 100px);
+                height: calc(100vh - var(--header-height-sp));
                 background: white;
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 1.5rem;
+                padding: 1rem 0;
                 overflow-y: auto;
                 transition: left 0.3s ease;
                 z-index: 100000;
@@ -383,35 +445,70 @@
                     left: 0;
                 }
 
-            .nav-item {
+            .nav-item, .dropdown {
                 width: 100%;
                 height: auto;
-                padding: 15px 10px;
+            }
+
+            .nav-item {
+                padding: 14px 20px;
                 font-size: 1.05rem;
-                border-bottom: 1px solid #edf2f7 !important;
+                border-bottom: 1px solid #f1f5f9;
+                border-left: 4px solid transparent;
             }
 
                 .nav-item.active {
-                    border-bottom-color: #edf2f7 !important;
-                    padding-left: 15px;
-                    border-left: 4px solid currentColor;
+                    border-bottom: 1px solid #f1f5f9;
+                    border-left-color: var(--color-all);
                 }
+
+            .dropdown {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                width: 100%;
+                background: #f8fafc;
+                display: none;
+                padding: 0;
+                border-radius: 0;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: none;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu a {
+                padding: 12px 30px;
+                font-size: 0.95rem;
+            }
         }
 
-        /* --- 2. スマホ（600px以下）: 1行2人表示 --- */
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
             .teacher-grid {
-                grid-template-columns: repeat(2, 1fr); /* 完全に1行2人 */
-                gap: 0.6rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .card-banner {
+                height: 55px;
             }
 
             .card-body {
                 padding: 0 0.4rem 0.8rem;
+                margin-top: -30px;
             }
 
             .card-icon-wrap {
-                width: 68px;
-                height: 68px;
+                width: 60px;
+                height: 60px;
             }
 
             .card-name {
@@ -420,42 +517,28 @@
 
             .card-dept {
                 font-size: 0.7rem;
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.4rem;
             }
 
             .tag {
                 font-size: 0.6rem;
-                padding: 0.15rem 0.3rem;
-            }
-        }
-
-        /* --- 3. PC環境 (1025px以上) --- */
-        @media (min-width: 1025px) {
-            .teacher-grid {
-                grid-template-columns: repeat(5, 1fr);
+                padding: 0.15rem 0.35rem;
             }
 
-            .nav-container {
-                overflow-x: auto;
-                white-space: nowrap;
+            .search-input {
+                font-size: 0.9rem;
+                padding: 10px 16px 10px 42px;
             }
 
-                .nav-container::-webkit-scrollbar {
-                    height: 4px;
-                }
-
-                .nav-container::-webkit-scrollbar-thumb {
-                    background: #cbd5e1;
-                    border-radius: 2px;
-                }
-
-            .nav-links {
-                flex-shrink: 0;
+            .search-icon {
+                width: 16px;
+                height: 16px;
+                left: 14px;
             }
 
-            .nav-item {
-                padding: 0 12px !important;
-                font-size: 0.95rem !important;
+            .nav-search-icon {
+                width: 24px;
+                height: 24px;
             }
         }
     </style>
@@ -464,7 +547,7 @@
 
     <header class="top-nav">
         <div class="nav-container">
-            <!-- 左側：ロゴとタイトルエリア -->
+            <!-- 左側：ロゴエリア -->
             <a href="index.html" class="nav-logo-area">
                 <img src="sensei-zukan-logo.png" alt="先生図鑑" class="nav-logo">
             </a>
@@ -479,25 +562,47 @@
             <!-- 右側：ナビゲーションリンク -->
             <nav class="nav-links" id="navLinks">
                 <a href="about-us.html" class="nav-item">先生図鑑とは</a>
-                <a href="#" class="nav-item active" data-target="all">先生一覧</a>
-                <a href="#" class="nav-item" data-target="機械工学科">機械工学科</a>
-                <a href="#" class="nav-item" data-target="電気情報工学科">電気情報工学科</a>
-                <a href="#" class="nav-item" data-target="電子制御工学科">電子制御工学科</a>
-                <a href="#" class="nav-item" data-target="情報工学科">情報工学科</a>
-                <a href="#" class="nav-item" data-target="環境・建設工学科">環境・建設工学科</a>
-                <a href="#" class="nav-item" data-target="人文科学科">人文科学科</a>
-                <a href="#" class="nav-item" data-target="数理科学科">数理科学科</a>
+                <a href="#" class="nav-item active" id="navTeacherIntro">先生紹介</a>
+
+                <!-- 学科一覧 (ドロップダウン) -->
+                <div class="dropdown" id="deptDropdown">
+                    <span class="nav-item">学科一覧</span>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dept-m" data-dept="機械工学科">機械工学科</a>
+                        <a href="#" class="dept-e" data-dept="電気情報工学科">電気情報工学科</a>
+                        <a href="#" class="dept-d" data-dept="電子制御工学科">電子制御工学科</a>
+                        <a href="#" class="dept-j" data-dept="情報工学科">情報工学科</a>
+                        <a href="#" class="dept-c" data-dept="環境・建設工学科">環境・建設工学科</a>
+                        <a href="#" class="dept-h" data-dept="人文科学科">人文科学科</a>
+                        <a href="#" class="dept-s" data-dept="数理科学科">数理科学科</a>
+                    </div>
+                </div>
+
+                <!-- 先生を検索 -->
+                <div class="dropdown" id="searchDropdown">
+                    <span class="nav-item">
+                        <img src="search-icon.png" alt="検索アイコン" class="nav-search-icon">
+                        先生を検索
+                    </span>
+                    <div class="dropdown-menu">
+                        <a href="#" id="searchDeptBtn">学科から検索</a>
+                        <a href="#" id="searchFieldBtn">研究分野から検索</a>
+                    </div>
+                </div>
+
+                <a href="research-matching.html" class="nav-item">研究室マッチング</a>
+                <a href="https://www.matsue-ct.ac.jp/" target="_blank" rel="noopener noreferrer" class="nav-item">ホームページ</a>
             </nav>
         </div>
     </header>
 
     <!-- メインコンテンツエリア -->
     <div class="container">
-        <!-- 検索バー -->
+        <!-- 検索バー（先生を検索が押された際に表示） -->
         <header class="header-section">
-            <div class="search-container">
+            <div class="search-container" id="searchContainer">
                 <img src="search-icon.png" alt="検索" class="search-icon">
-                <input type="text" id="teacherSearch" class="search-input" placeholder="先生を検索">
+                <input type="text" id="teacherSearch" class="search-input" placeholder="先生を検索（学科・分野・名前）">
             </div>
         </header>
 
@@ -562,60 +667,138 @@
                     <div class="card-tags"><span class="tag">#日本近代文学</span><span class="tag">#日本語</span></div>
                 </div>
             </div>
-
         </div>
     </div>
 
     <!-- スクリプト -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const navItems = document.querySelectorAll('.nav-links .nav-item');
             const cards = document.querySelectorAll('.teacher-card');
             const searchInput = document.getElementById('teacherSearch');
+            const searchContainer = document.getElementById('searchContainer');
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
 
-            // 先生の絞り込み関数
+            const searchDropdown = document.getElementById('searchDropdown');
+            const deptDropdown = document.getElementById('deptDropdown');
+            const deptNavItem = deptDropdown.querySelector('.nav-item');
+            const deptLinks = document.querySelectorAll('#deptDropdown .dropdown-menu a');
+
+            const searchDeptBtn = document.getElementById('searchDeptBtn');
+            const searchFieldBtn = document.getElementById('searchFieldBtn');
+            const navTeacherIntro = document.getElementById('navTeacherIntro');
+
+            let currentSearchType = null;
+
+            // 検索フィルター
             function filterTeachers() {
                 if (!searchInput) return;
                 const searchTerm = searchInput.value.toLowerCase();
 
-                const activeNav = document.querySelector('.nav-item.active');
-                const activeDept = activeNav ? activeNav.getAttribute('data-target') : 'all';
-
                 cards.forEach(card => {
                     const name = card.querySelector('.card-name').textContent.toLowerCase();
-                    const dept = card.getAttribute('data-dept');
+                    const dept = card.getAttribute('data-dept').toLowerCase();
                     const tags = card.querySelector('.card-tags').textContent.toLowerCase();
 
-                    const matchesDept = (activeDept === 'all' || dept === activeDept);
-                    const matchesSearch = name.includes(searchTerm) || tags.includes(searchTerm);
-
-                    if (matchesDept && matchesSearch) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    const matchesSearch = name.includes(searchTerm) || dept.includes(searchTerm) || tags.includes(searchTerm);
+                    card.style.display = matchesSearch ? 'flex' : 'none';
                 });
             }
 
-            // ナビゲーションタブのクリックイベント
-            navItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    if (!item.hasAttribute('data-target')) {
-                        return;
-                    }
+            // 学科選択フィルター
+            function filterByDepartment(targetDept) {
+                cards.forEach(card => {
+                    const dept = card.getAttribute('data-dept');
+                    card.style.display = (dept === targetDept) ? 'flex' : 'none';
+                });
+            }
 
+            // モバイルメニューを閉じる
+            function closeMobileMenu() {
+                if (window.innerWidth <= 1024) {
+                    menuToggle.classList.remove('open');
+                    navLinks.classList.remove('open');
+                    searchDropdown.classList.remove('open');
+                    deptDropdown.classList.remove('open');
+                }
+            }
+
+            // アクティブ選択状態のリセット
+            function resetNavActive() {
+                document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+                deptLinks.forEach(link => link.classList.remove('active'));
+            }
+
+            // 検索トグル
+            function toggleSearch(type, placeholderText) {
+                if (searchContainer.classList.contains('active') && currentSearchType === type) {
+                    searchContainer.classList.remove('active');
+                    currentSearchType = null;
+                    searchInput.value = '';
+                    cards.forEach(card => card.style.display = 'flex');
+                    closeMobileMenu();
+                    return;
+                }
+
+                currentSearchType = type;
+                searchContainer.classList.add('active');
+                searchInput.placeholder = placeholderText;
+                searchInput.focus();
+                closeMobileMenu();
+            }
+
+            searchDeptBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleSearch('dept', '学科を入力');
+            });
+
+            searchFieldBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleSearch('field', '研究分野・キーワードを入力');
+            });
+
+            // 学科メニューのクリック制御（選択した学科タグ内のみアクティブ状態保持）
+            deptLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
                     e.preventDefault();
 
-                    navItems.forEach(nav => nav.classList.remove('active'));
-                    item.classList.add('active');
+                    resetNavActive();
 
-                    filterTeachers();
+                    // 1. 学科一覧（親ナビ）を標準のアクティブ状態にする
+                    deptNavItem.classList.add('active');
 
-                    if (menuToggle && navLinks) {
-                        menuToggle.classList.remove('open');
-                        navLinks.classList.remove('open');
+                    // 2. ドロップダウンメニュー内の選択した学科タグだけをアクティブ化（保持）
+                    link.classList.add('active');
+
+                    // 3. 表示カードの絞り込み処理
+                    filterByDepartment(link.getAttribute('data-dept'));
+                    closeMobileMenu();
+                });
+            });
+
+            // 「先生紹介」クリック（全リセット）
+            navTeacherIntro.addEventListener('click', (e) => {
+                e.preventDefault();
+                resetNavActive();
+                navTeacherIntro.classList.add('active');
+
+                searchContainer.classList.remove('active');
+                currentSearchType = null;
+                searchInput.value = '';
+                cards.forEach(card => card.style.display = 'flex');
+                closeMobileMenu();
+            });
+
+            // スマホでのアコーディオン風ドロップダウン切替
+            [searchDropdown, deptDropdown].forEach(dropdown => {
+                const navItem = dropdown.querySelector('.nav-item');
+                navItem.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 1024) {
+                        e.stopPropagation();
+                        const isOpen = dropdown.classList.contains('open');
+                        searchDropdown.classList.remove('open');
+                        deptDropdown.classList.remove('open');
+                        if (!isOpen) dropdown.classList.add('open');
                     }
                 });
             });
@@ -624,6 +807,7 @@
                 searchInput.addEventListener('input', filterTeachers);
             }
 
+            // ハンバーガーメニュー制御
             if (menuToggle && navLinks) {
                 menuToggle.addEventListener('click', (e) => {
                     e.preventDefault();
