@@ -578,17 +578,11 @@
                     </div>
                 </div>
 
-                <!-- 先生を検索 -->
-                <div class="dropdown" id="searchDropdown">
-                    <span class="nav-item">
-                        <img src="search-icon.png" alt="検索アイコン" class="nav-search-icon">
-                        先生を検索
-                    </span>
-                    <div class="dropdown-menu">
-                        <a href="#" id="searchDeptBtn">学科から検索</a>
-                        <a href="#" id="searchFieldBtn">研究分野から検索</a>
-                    </div>
-                </div>
+                <!-- 先生を検索 (クリックで直接検索バーを表示) -->
+                <a href="#" class="nav-item" id="navTeacherSearch">
+                    <img src="search-icon.png" alt="検索アイコン" class="nav-search-icon">
+                    先生を検索
+                </a>
 
                 <a href="research-matching.html" class="nav-item">研究室マッチング</a>
                 <a href="https://www.matsue-ct.ac.jp/" target="_blank" rel="noopener noreferrer" class="nav-item">ホームページ</a>
@@ -602,31 +596,12 @@
         <header class="header-section">
             <div class="search-container" id="searchContainer">
                 <img src="search-icon.png" alt="検索" class="search-icon">
-                <input type="text" id="teacherSearch" class="search-input" placeholder="先生を検索（学科・分野・名前）">
+                <input type="text" id="teacherSearch" class="search-input" placeholder="学科・研究分野から検索">
             </div>
         </header>
 
         <!-- 先生一覧グリッド -->
         <div class="teacher-grid" id="teacherGrid">
-            <a href="takami-akiyasu.html" class="teacher-card" data-dept="機械工学科">
-                <div class="card-banner"></div>
-                <div class="card-body">
-                    <div class="card-icon-wrap"><img src="takami-akiyasu.jpg" alt="高見 昭康"></div>
-                    <h2 class="card-name">高見 昭康</h2>
-                    <span class="card-dept">機械工学科 / 教授</span>
-                    <div class="card-tags"><span class="tag">#ものづくり技術</span><span class="tag">#材料力学</span></div>
-                </div>
-            </a>
-
-            <a href="ashida-yoichiro.html" class="teacher-card" data-dept="電気情報工学科">
-                <div class="card-banner"></div>
-                <div class="card-body">
-                    <div class="card-icon-wrap"><img src="ashida-yoichiro.jpg" alt="芦田 洋一郎"></div>
-                    <h2 class="card-name">芦田 洋一郎</h2>
-                    <span class="card-dept">電気情報工学科 / 准教授</span>
-                    <div class="card-tags"><span class="tag">#自動制御</span></div>
-                </div>
-            </a>
 
             <a href="horiuchi-tadashi.html" class="teacher-card" data-dept="電子制御工学科">
                 <div class="card-banner"></div>
@@ -645,6 +620,26 @@
                     <h2 class="card-name">山口 剛士</h2>
                     <span class="card-dept">環境・建設工学科 / 准教授</span>
                     <div class="card-tags"><span class="tag">#環境微生物</span><span class="tag">#衛生工学</span></div>
+                </div>
+            </a>
+
+            <a href="ashida-yoichiro.html" class="teacher-card" data-dept="電気情報工学科">
+                <div class="card-banner"></div>
+                <div class="card-body">
+                    <div class="card-icon-wrap"><img src="ashida-yoichiro.jpg" alt="芦田 洋一郎"></div>
+                    <h2 class="card-name">芦田 洋一郎</h2>
+                    <span class="card-dept">電気情報工学科 / 准教授</span>
+                    <div class="card-tags"><span class="tag">#自動制御</span></div>
+                </div>
+            </a>
+
+            <a href="takami-akiyasu.html" class="teacher-card" data-dept="機械工学科">
+                <div class="card-banner"></div>
+                <div class="card-body">
+                    <div class="card-icon-wrap"><img src="takami-akiyasu.jpg" alt="高見 昭康"></div>
+                    <h2 class="card-name">高見 昭康</h2>
+                    <span class="card-dept">機械工学科 / 教授</span>
+                    <div class="card-tags"><span class="tag">#ものづくり技術</span><span class="tag">#材料力学</span></div>
                 </div>
             </a>
 
@@ -679,16 +674,12 @@
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
 
-            const searchDropdown = document.getElementById('searchDropdown');
             const deptDropdown = document.getElementById('deptDropdown');
             const deptNavItem = deptDropdown.querySelector('.nav-item');
             const deptLinks = document.querySelectorAll('#deptDropdown .dropdown-menu a');
 
-            const searchDeptBtn = document.getElementById('searchDeptBtn');
-            const searchFieldBtn = document.getElementById('searchFieldBtn');
+            const navTeacherSearch = document.getElementById('navTeacherSearch');
             const navTeacherIntro = document.getElementById('navTeacherIntro');
-
-            let currentSearchType = null;
 
             // 検索フィルター
             function filterTeachers() {
@@ -718,7 +709,6 @@
                 if (window.innerWidth <= 1024) {
                     menuToggle.classList.remove('open');
                     navLinks.classList.remove('open');
-                    searchDropdown.classList.remove('open');
                     deptDropdown.classList.remove('open');
                 }
             }
@@ -730,31 +720,26 @@
             }
 
             // 検索トグル
-            function toggleSearch(type, placeholderText) {
-                if (searchContainer.classList.contains('active') && currentSearchType === type) {
+            function toggleSearch() {
+                resetNavActive();
+
+                if (searchContainer.classList.contains('active')) {
                     searchContainer.classList.remove('active');
-                    currentSearchType = null;
                     searchInput.value = '';
                     cards.forEach(card => card.style.display = 'flex');
-                    closeMobileMenu();
-                    return;
+                    navTeacherIntro.classList.add('active');
+                } else {
+                    searchContainer.classList.add('active');
+                    navTeacherSearch.classList.add('active');
+                    searchInput.focus();
                 }
-
-                currentSearchType = type;
-                searchContainer.classList.add('active');
-                searchInput.placeholder = placeholderText;
-                searchInput.focus();
                 closeMobileMenu();
             }
 
-            searchDeptBtn.addEventListener('click', (e) => {
+            // 「先生を検索」クリックイベント
+            navTeacherSearch.addEventListener('click', (e) => {
                 e.preventDefault();
-                toggleSearch('dept', '学科を入力');
-            });
-
-            searchFieldBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                toggleSearch('field', '研究分野・キーワードを入力');
+                toggleSearch();
             });
 
             // 学科メニューのクリック制御（選択した学科タグ内のみアクティブ状態保持）
@@ -783,24 +768,18 @@
                 navTeacherIntro.classList.add('active');
 
                 searchContainer.classList.remove('active');
-                currentSearchType = null;
                 searchInput.value = '';
                 cards.forEach(card => card.style.display = 'flex');
                 closeMobileMenu();
             });
 
-            // スマホでのアコーディオン風ドロップダウン切替
-            [searchDropdown, deptDropdown].forEach(dropdown => {
-                const navItem = dropdown.querySelector('.nav-item');
-                navItem.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 1024) {
-                        e.stopPropagation();
-                        const isOpen = dropdown.classList.contains('open');
-                        searchDropdown.classList.remove('open');
-                        deptDropdown.classList.remove('open');
-                        if (!isOpen) dropdown.classList.add('open');
-                    }
-                });
+            // スマホでのアコーディオン風ドロップダウン切替（学科一覧のみ対象）
+            const deptItem = deptDropdown.querySelector('.nav-item');
+            deptItem.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1024) {
+                    e.stopPropagation();
+                    deptDropdown.classList.toggle('open');
+                }
             });
 
             if (searchInput) {
