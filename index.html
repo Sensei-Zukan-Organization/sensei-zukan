@@ -75,6 +75,19 @@
             z-index: 10;
         }
 
+        .matching-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 10;
+        }
+
         .search-input {
             width: 100%;
             padding: 12px 20px 12px 48px;
@@ -278,7 +291,13 @@
             object-fit: contain;
             opacity: 0.8;
         }
-
+        .nav-matching-icon {
+           width: 40px;
+           height: 40px;
+           margin-right: 8px;
+           object-fit: contain;
+           opacity: 0.8;
+        }
         .dropdown {
             position: relative;
             height: 100%;
@@ -540,6 +559,18 @@
                 width: 24px;
                 height: 24px;
             }
+
+            .matching-icon {
+                width: 16px;
+                height: 16px;
+                left: 14px;
+            }
+
+            .nav-matching-icon {
+                width: 24px;
+                height: 24px;
+            }
+            
         }
     </style>
 </head>
@@ -584,7 +615,7 @@
                     先生を検索
                 </a>
 
-                <a href="research-matching.html" class="nav-item">研究室マッチング</a>
+                <a href="research-matching.html" class="nav-item"><img src="matching-icon.png" alt="研究室マッチング" class="nav-matching-icon">研究室マッチング</a>
                 <a href="https://www.matsue-ct.ac.jp/" target="_blank" rel="noopener noreferrer" class="nav-item">ホームページ</a>
             </nav>
         </div>
