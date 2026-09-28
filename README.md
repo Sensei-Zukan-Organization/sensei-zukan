@@ -4,7 +4,7 @@
 
 # 使用言語など
 
-## 現在 (2026/09/28時点)
+## 現在 (2026/09/29時点)
 ・HTML/CSS
 
 ・JavaScript
@@ -13,9 +13,9 @@
 
 ・Express.js
 
-## 今後
-
 ・MySQL (研究室マッチングに使用)
+
+## 今後
 
 ・Python (研究室マッチングに使用)
 
@@ -29,17 +29,25 @@ mainブランチには完成したコードを置きます.
 
 → article-(名字)_(名前)
 
-例： 山田太郎先生の場合
+例： 高専太郎先生の場合
 
-→ article-Yamada_Taro
+→ article-Kosen_Taro
 
 ## サイト全体の機能開発をする場合
 
 → feature-(機能名)
 
-例： データベースを追加する場合
+例： データベースを実装する場合
 
 → feature-Database
+
+例： 研究室マッチングを実装する場合
+
+→ feature-Research_Matching
+
+例： 記事以外のデザインを変更する場合
+
+→ feature-Overall
 
 # 開発環境について
 
