@@ -1,0 +1,24 @@
+{
+  "name": "sensei-zukan",
+  "version": "1.0.0",
+  "description": "松江高専の先生方の記事を作成するWebサイトです.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sensei-Zukan-Organization/sensei-zukan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sensei-Zukan-Organization/sensei-zukan/issues"
+  },
+  "homepage": "https://github.com/Sensei-Zukan-Organization/sensei-zukan#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
