@@ -62,6 +62,45 @@
                 display: block;
             }
 
+        .about-us-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .teacher2-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .subject-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 10;
+        }
+
         .search-icon {
             position: absolute;
             left: 18px;
@@ -283,6 +322,30 @@
                 color: #334155;
                 border-bottom-color: var(--color-all);
             }
+
+        .nav-about-us-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+            object-fit: contain;
+            opacity: 0.8;
+        }
+
+        .nav-teacher2-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+            object-fit: contain;
+            opacity: 0.8;
+        }
+
+        .nav-subject-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+            object-fit: contain;
+            opacity: 0.8;
+        }
 
         .nav-search-icon {
             width: 30px;
@@ -549,6 +612,39 @@
                 padding: 10px 16px 10px 42px;
             }
 
+            .about-us-icon {
+                width: 16px;
+                height: 16px;
+                left: 14px;
+            }
+
+            .nav-about-us-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .teacher2-icon {
+                width: 16px;
+                height: 16px;
+                left: 14px;
+            }
+
+            .nav-teacher2-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .subject-icon {
+                width: 16px;
+                height: 16px;
+                left: 14px;
+            }
+
+            .nav-subject-icon {
+                width: 24px;
+                height: 24px;
+            }
+
             .search-icon {
                 width: 16px;
                 height: 16px;
@@ -592,12 +688,12 @@
 
             <!-- 右側：ナビゲーションリンク -->
             <nav class="nav-links" id="navLinks">
-                <a href="about-us.html" class="nav-item">先生図鑑とは</a>
-                <a href="#" class="nav-item active" id="navTeacherIntro">先生紹介</a>
+                <a href="about-us.html" class="nav-item"><img src="about-us-icon.png" alt="先生図鑑とは" class="nav-matching-icon">先生図鑑とは</a>
+                <a href="#" class="nav-item active" id="navTeacherIntro"><img src="teacher2-icon.png" alt="先生紹介" class="nav-matching-icon">先生紹介</a>
 
                 <!-- 学科一覧 (ドロップダウン) -->
                 <div class="dropdown" id="deptDropdown">
-                    <span class="nav-item">学科一覧</span>
+                    <span class="nav-item"><img src="subject-icon.png" alt="学科一覧" class="nav-matching-icon">学科一覧</a>
                     <div class="dropdown-menu">
                         <a href="#" class="dept-m" data-dept="機械工学科">機械工学科</a>
                         <a href="#" class="dept-e" data-dept="電気情報工学科">電気情報工学科</a>
@@ -616,7 +712,7 @@
                 </a>
 
                 <a href="research-matching.html" class="nav-item"><img src="matching-icon.png" alt="研究室マッチング" class="nav-matching-icon">研究室マッチング</a>
-                <a href="https://www.matsue-ct.ac.jp/" target="_blank" rel="noopener noreferrer" class="nav-item">ホームページ</a>
+                <a href="research-matching.html" class="nav-item"><img src="matching-icon.png" alt="ホームページ" class="nav-matching-icon">ホームページ</a>
             </nav>
         </div>
     </header>
