@@ -578,19 +578,69 @@
                 border-left-color: var(--color-all);
             }
 
+            /* 学科一覧：閉じた状態は他のナビ項目と揃え、開いた時だけ横並びにする */
             .dropdown {
+                display: flex;
                 flex-direction: column;
                 align-items: flex-start;
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                border-radius: 0;
+                background: transparent;
+            }
+
+            .dropdown > .nav-item {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 1.05rem;
+                border-bottom: 1px solid #f1f5f9;
+                border-left: 4px solid transparent;
+                border-radius: 0;
+                background: transparent;
+                color: #4b5563;
+                font-weight: 500;
+                white-space: nowrap;
+            }
+
+            .dropdown.open {
+                display: grid;
+                grid-template-columns: minmax(112px, 0.28fr) minmax(0, 1fr);
+                align-items: start;
+                gap: 8px;
+                margin: 0;
+                padding: 8px 12px;
+                border-radius: 0;
+                background: #f8fafc;
+            }
+
+            .dropdown.open > .nav-item {
+                grid-column: 1;
+                grid-row: 1;
+                width: auto;
+                min-height: 46px;
+                padding: 0 8px;
+                border: 0;
+                border-radius: 0;
+                background: #f8fafc;
+                color: #334155;
+                font-size: 0.95rem;
+                font-weight: 700;
             }
 
             .dropdown-menu {
+                grid-column: 2;
+                grid-row: 1;
                 position: static;
-                box-shadow: none;
-                width: 100%;
-                background: #f8fafc;
                 display: none;
+                width: 100%;
+                min-width: 0;
                 padding: 0;
                 border-radius: 0;
+                background: #f8fafc;
+                box-shadow: none;
+                overflow: hidden;
             }
 
             .dropdown:hover .dropdown-menu {
@@ -602,10 +652,11 @@
             }
 
             .dropdown-menu a {
-                padding: 12px 30px;
+                min-height: 46px;
+                padding: 12px 12px;
+                background: #f8fafc;
                 font-size: 0.95rem;
-            }
-        }
+            }        }
 
         @media (max-width: 640px) {
             .teacher-grid {
@@ -721,7 +772,7 @@
         <div class="nav-container">
             <!-- 左側：ロゴエリア -->
             <a href="index.html" class="nav-logo-area">
-                <img src="sensei-zukan-logo.png" alt="先生図鑑" class="nav-logo">
+                <img src="public/images/sensei-zukan-logo.png" alt="先生図鑑" class="nav-logo">
             </a>
 
             <!-- ハンバーガーボタン -->
@@ -733,14 +784,14 @@
 
             <!-- 右側：ナビゲーションリンク -->
             <nav class="nav-links" id="navLinks">
-                <a href="about-us.html" class="nav-item"><img src="about-us-icon.png" alt="先生図鑑とは"
+                <a href="about-us.html" class="nav-item"><img src="public/images/about-us-icon.png" alt="先生図鑑とは"
                         class="nav-matching-icon">先生図鑑とは</a>
-                <a href="#" class="nav-item active" id="navTeacherIntro"><img src="teacher2-icon.png" alt="先生紹介"
+                <a href="#" class="nav-item active" id="navTeacherIntro"><img src="public/images/teachers-icon.png" alt="先生紹介"
                         class="nav-matching-icon">先生紹介</a>
 
                 <!-- 学科一覧 (ドロップダウン) -->
                 <div class="dropdown" id="deptDropdown">
-                    <span class="nav-item"><img src="subject-icon.png" alt="学科一覧" class="nav-matching-icon">学科一覧</a>
+                    <span class="nav-item"><img src="public/images/department-icon.png" alt="学科一覧" class="nav-matching-icon">学科一覧</span>
                         <div class="dropdown-menu">
                             <a href="#" class="dept-m" data-dept="機械工学科">機械工学科</a>
                             <a href="#" class="dept-e" data-dept="電気情報工学科">電気情報工学科</a>
@@ -754,13 +805,13 @@
 
                 <!-- 先生を検索 (クリックで直接検索バーを表示) -->
                 <a href="#" class="nav-item" id="navTeacherSearch">
-                    <img src="search-icon.png" alt="検索アイコン" class="nav-search-icon">
+                    <img src="public/images/search-icon.png" alt="検索アイコン" class="nav-search-icon">
                     先生を検索
                 </a>
 
-                <a href="research-matching.html" class="nav-item"><img src="matching-icon.png" alt="研究室マッチング"
+                <a href="research-matching.html" class="nav-item"><img src="public/images/matching-icon.png" alt="研究室マッチング"
                         class="nav-matching-icon">研究室マッチング</a>
-                <a href="research-matching.html" class="nav-item"><img src="home-icon.png" alt="ホームページ" class="nav-home-icon">ホームページ</a>
+                <a href="https://www.matsue-ct.ac.jp/" class="nav-item"><img src="public/images/home-icon.png" alt="ホームページ" class="nav-home-icon">ホームページ</a>
             </nav>
         </div>
     </header>
@@ -770,7 +821,7 @@
         <!-- 検索バー（先生を検索が押された際に表示） -->
         <header class="header-section">
             <div class="search-container" id="searchContainer">
-                <img src="search-icon.png" alt="検索" class="search-icon">
+                <img src="public/images/search-icon.png" alt="検索" class="search-icon">
                 <input type="text" id="teacherSearch" class="search-input" placeholder="学科・研究分野から検索">
             </div>
         </header>
