@@ -65,11 +65,11 @@ python3 -m http.server 8000
 
 例：MySQLを起動する方法
 
-> sudo service mysql start
+・sudo service mysql start
 
-> sudo service mysql status 
+・sudo service mysql status 
 
-> sudo mysql
+・sudo mysql
 
 
 
