@@ -60,3 +60,16 @@ mainブランチに直接書き込むことは原則禁止です.
 変更点を確認する場合はターミナルにて以下のコマンドを入力してください.
 
 python3 -m http.server 8000
+
+# MySQLについて
+
+例：MySQLを起動する方法
+
+> sudo service mysql start
+
+> sudo service mysql status 
+
+> sudo mysql
+
+
+
