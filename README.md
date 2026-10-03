@@ -1,10 +1,10 @@
 # 先生図鑑 ホームページ
 
-松江高専の先生方の記事を作成するWebサイトです.
+松江高専の先生方の取材記事を作成・公開するWebサイトです.
 
 # 使用言語など
 
-## 現在 (2026/09/29時点)
+## 現在 (2026/10/03時点)
 ・HTML/CSS
 
 ・JavaScript
@@ -29,7 +29,7 @@ mainブランチには完成したコードを置きます.
 
 → article-(名字)_(名前)
 
-例： 高専太郎先生の場合
+例：高専太郎先生の場合
 
 → article-Kosen_Taro
 
@@ -37,15 +37,15 @@ mainブランチには完成したコードを置きます.
 
 → feature-(機能名)
 
-例： データベースを実装する場合
+例：データベースを実装する場合
 
 → feature-Database
 
-例： 研究室マッチングを実装する場合
+例：研究室マッチングを実装する場合
 
 → feature-Research_Matching
 
-例： 記事以外のデザインを変更する場合
+例：記事以外のデザインを変更する場合
 
 → feature-Overall
 
@@ -65,11 +65,13 @@ python3 -m http.server 8000
 
 例：MySQLを起動する方法
 
-・sudo service mysql start
+・sudo service mysql start (MySQLの稼働開始)
 
-・sudo service mysql status 
+・sudo service mysql status (MySQLの稼働確認)
 
-・sudo mysql
+・sudo mysql (MySQLの起動)
 
+例：先生図鑑DBに入る方法
 
+mysql> use Sensei_Zukan;
 
