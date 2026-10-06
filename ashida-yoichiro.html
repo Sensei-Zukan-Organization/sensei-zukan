@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>先生図鑑 芦田洋一郎 准教授</title>
-    <link rel="icon" href="sensei-zukan-icon.png" type="image/png">
-    <link rel="apple-touch-icon" href="sensei-zukan-icon.png">
+    <link rel="icon" href="public/images/sensei-zukan-icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="public/images/sensei-zukan-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="teacher-header.css">
     <style>
         /* Base Styles */
         /* Base Styles */
@@ -349,6 +350,17 @@
         }
 
         @media (max-width: 640px) {
+            .search-input {
+                font-size: 0.9rem;
+                padding: 10px 16px 10px 42px;
+            }
+
+            .search-icon {
+                width: 16px;
+                height: 16px;
+                left: 14px;
+            }
+
             .profile-top-row {
                 flex-direction: column;
                 align-items: center;
@@ -392,6 +404,38 @@
 </head>
 <body>
 
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo-area">
+                <img src="public/images/sensei-zukan-logo.png" alt="先生図鑑" class="nav-logo">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="メニュー開閉">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="about-us.html" class="nav-item"><img src="public/images/about-us-icon.png" alt="先生図鑑とは" class="nav-matching-icon">先生図鑑とは</a>
+                <a href="#" class="nav-item active" id="navTeacherIntro"><img src="public/images/teachers-icon.png" alt="先生紹介" class="nav-matching-icon">先生紹介</a>
+                <div class="dropdown" id="deptDropdown">
+                    <span class="nav-item"><img src="public/images/department-icon.png" alt="学科一覧" class="nav-matching-icon">学科一覧</span>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dept-m" data-dept="機械工学科">機械工学科</a>
+                        <a href="#" class="dept-e" data-dept="電気情報工学科">電気情報工学科</a>
+                        <a href="#" class="dept-d" data-dept="電子制御工学科">電子制御工学科</a>
+                        <a href="#" class="dept-j" data-dept="情報工学科">情報工学科</a>
+                        <a href="#" class="dept-c" data-dept="環境・建設工学科">環境・建設工学科</a>
+                        <a href="#" class="dept-h" data-dept="人文科学科">人文科学科</a>
+                        <a href="#" class="dept-s" data-dept="数理科学科">数理科学科</a>
+                    </div>
+                </div>
+                <a href="#" class="nav-item" id="navTeacherSearch">
+                    <img src="public/images/search-icon.png" alt="検索アイコン" class="nav-search-icon">先生を検索
+                </a>
+                <a href="research-matching.html" class="nav-item"><img src="public/images/matching-icon.png" alt="研究室マッチング" class="nav-matching-icon">研究室マッチング</a>
+                <a href="https://www.matsue-ct.ac.jp/" class="nav-item"><img src="public/images/home-icon.png" alt="ホームページ" class="nav-home-icon">ホームページ</a>
+            </nav>
+        </div>
+    </header>
+
     <div class="profile-container">
         <header class="sns-profile-card">
             <div class="cover-photo"></div>
@@ -399,7 +443,7 @@
                 <div class="profile-top-row">
                     <div class="profile-icon-wrap">
                         <!-- ここに貼り付けたい画像を設置 -->
-                        <img src="ashida-yoichiro.jpg" alt="芦田准教授">
+                        <img src="public/images/ashida-yoichiro.jpg" alt="芦田准教授">
                     </div>
                     <div class="profile-actions">
                         <a href="index.html"
@@ -450,7 +494,7 @@
             <div class="message teacher">
                 <div class="avatar-box">
                     <!-- ここに貼り付けたい画像を設置 -->
-                    <img src="ashida-yoichiro.jpg" alt="芦田先生">
+                    <img src="public/images/ashida-yoichiro.jpg" alt="芦田先生">
                     <span class="avatar-label">芦田先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -472,7 +516,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="ashida-yoichiro.jpg" alt="芦田先生">
+                    <img src="public/images/ashida-yoichiro.jpg" alt="芦田先生">
                     <span class="avatar-label">芦田先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -500,7 +544,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="ashida-yoichiro.jpg" alt="芦田先生">
+                    <img src="public/images/ashida-yoichiro.jpg" alt="芦田先生">
                     <span class="avatar-label">芦田先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -525,7 +569,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="ashida-yoichiro.jpg" alt="芦田先生">
+                    <img src="public/images/ashida-yoichiro.jpg" alt="芦田先生">
                     <span class="avatar-label">芦田先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -551,7 +595,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="ashida-yoichiro.jpg" alt="芦田先生">
+                    <img src="public/images/ashida-yoichiro.jpg" alt="芦田先生">
                     <span class="avatar-label">芦田先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -571,7 +615,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="ashida-yoichiro.jpg" alt="芦田先生">
+                    <img src="public/images/ashida-yoichiro.jpg" alt="芦田先生">
                     <span class="avatar-label">芦田先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -591,7 +635,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="ashida-yoichiro.jpg" alt="芦田先生">
+                    <img src="public/images/ashida-yoichiro.jpg" alt="芦田先生">
                     <span class="avatar-label">芦田先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -617,6 +661,34 @@
     </footer>
 
     <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const deptDropdown = document.getElementById('deptDropdown');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('open');
+                navLinks.classList.toggle('open');
+            });
+
+            navLinks.querySelectorAll('a[href]:not([href="#"])').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('open');
+                    navLinks.classList.remove('open');
+                    deptDropdown?.classList.remove('open');
+                });
+            });
+        }
+
+        if (deptDropdown) {
+            deptDropdown.querySelector('.nav-item').addEventListener('click', event => {
+                if (window.innerWidth <= 1024) {
+                    event.stopPropagation();
+                    deptDropdown.classList.toggle('open');
+                }
+            });
+        }
+
         document.querySelectorAll('.clickable-answer').forEach(bubble => {
             bubble.addEventListener('click', function () {
                 if (!this.classList.contains('is-opened')) {
