@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>先生図鑑 堀内匡 教授</title>
-    <link rel="icon" href="sensei-zukan-icon.png" type="image/png">
-    <link rel="apple-touch-icon" href="sensei-zukan-icon.png">
+    <link rel="icon" href="public/images/sensei-zukan-icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="public/images/sensei-zukan-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="teacher-header.css">
     <style>
         /* Base Styles */
         :root {
@@ -35,6 +36,35 @@
             line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
+
+        body {
+            padding-top: var(--header-height-pc);
+        }
+
+        .top-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); height: var(--header-height-pc); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; height: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo-area { display: flex; align-items: center; height: 100%; text-decoration: none; }
+        .nav-logo { height: 72px; width: auto; object-fit: contain; }
+        .nav-links { display: flex; height: 100%; align-items: center; }
+        .nav-item { font-size: 1rem; text-decoration: none; color: #4b5563; padding: 0 16px; white-space: nowrap; height: var(--header-height-pc); display: flex; align-items: center; font-weight: 500; transition: all 0.2s ease; border-bottom: 3px solid transparent; cursor: pointer; }
+        .nav-item:hover, .dropdown:hover > .nav-item { background: #f8fafc; }
+        .nav-item.active { background-color: #f1f5f9; color: #334155; border-bottom-color: var(--color-all); }
+        .nav-about-us-icon, .nav-teacher2-icon, .nav-subject-icon, .nav-search-icon, .nav-matching-icon, .nav-home-icon { width: 30px; height: 30px; margin-right: 8px; object-fit: contain; opacity: 0.8; }
+        .dropdown { position: relative; height: 100%; display: flex; align-items: center; }
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background-color: white; min-width: 200px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-radius: 0 0 8px 8px; overflow: hidden; z-index: 1001; }
+        .dropdown-menu a { color: #4b5563; padding: 12px 18px; text-decoration: none; display: block; font-size: 0.92rem; transition: all 0.2s ease; border-left: 4px solid transparent; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu a.dept-m:hover, .dropdown-menu a.dept-m.active { background-color: #fff5f5; color: #b91c1c; border-left-color: var(--color-m); font-weight: bold; }
+        .dropdown-menu a.dept-e:hover, .dropdown-menu a.dept-e.active { background-color: #fffbeb; color: #c2410c; border-left-color: var(--color-e); font-weight: bold; }
+        .dropdown-menu a.dept-d:hover, .dropdown-menu a.dept-d.active { background-color: #f0fdf4; color: #15803d; border-left-color: var(--color-d); font-weight: bold; }
+        .dropdown-menu a.dept-j:hover, .dropdown-menu a.dept-j.active { background-color: #faf5ff; color: #7e22ce; border-left-color: var(--color-j); font-weight: bold; }
+        .dropdown-menu a.dept-c:hover, .dropdown-menu a.dept-c.active { background-color: #eff6ff; color: #1d4ed8; border-left-color: var(--color-c); font-weight: bold; }
+        .dropdown-menu a.dept-h:hover, .dropdown-menu a.dept-h.active, .dropdown-menu a.dept-s:hover, .dropdown-menu a.dept-s.active { background-color: #f8fafc; color: #475569; border-left-color: #94a3b8; font-weight: bold; }
+        .menu-toggle { display: none; flex-direction: column; justify-content: space-between; width: 26px; height: 18px; background: transparent; border: none; cursor: pointer; z-index: 100005; }
+        .menu-toggle span { width: 100%; height: 2.5px; background-color: var(--text-main); border-radius: 2px; transition: all 0.3s ease; }
+        .menu-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .menu-toggle.open span:nth-child(2) { opacity: 0; }
+        .menu-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
         /* --- SNS Style Profile Card --- */
         .profile-container {
@@ -380,6 +410,26 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            body { padding-top: var(--header-height-sp); }
+            .top-nav { height: var(--header-height-sp); }
+            .nav-logo { height: 54px; }
+            .menu-toggle { display: flex; }
+            .nav-links { position: fixed; top: var(--header-height-sp); left: 100%; width: 100%; height: calc(100vh - var(--header-height-sp)); background: white; flex-direction: column; align-items: flex-start; padding: 1rem 0; overflow-y: auto; transition: left 0.3s ease; z-index: 100000; }
+            .nav-links.open { left: 0; }
+            .nav-item, .dropdown { width: 100%; height: auto; }
+            .nav-item { padding: 14px 20px; font-size: 1.05rem; border-bottom: 1px solid #f1f5f9; border-left: 4px solid transparent; }
+            .nav-item.active { border-bottom: 1px solid #f1f5f9; border-left-color: var(--color-all); }
+            .dropdown { display: flex; flex-direction: column; align-items: flex-start; width: 100%; height: auto; margin: 0; padding: 0; border-radius: 0; background: transparent; }
+            .dropdown > .nav-item { width: 100%; padding: 14px 20px; font-size: 1.05rem; border-bottom: 1px solid #f1f5f9; border-left: 4px solid transparent; border-radius: 0; background: transparent; color: #4b5563; font-weight: 500; white-space: nowrap; }
+            .dropdown.open { display: grid; grid-template-columns: minmax(112px, 0.28fr) minmax(0, 1fr); align-items: start; gap: 8px; margin: 0; padding: 8px 12px; border-radius: 0; background: #f8fafc; }
+            .dropdown.open > .nav-item { grid-column: 1; grid-row: 1; width: auto; min-height: 46px; padding: 0 8px; border: 0; border-radius: 0; background: #f8fafc; color: #334155; font-size: 0.95rem; font-weight: 700; }
+            .dropdown-menu { grid-column: 2; grid-row: 1; position: static; display: none; width: 100%; min-width: 0; padding: 0; border-radius: 0; background: #f8fafc; box-shadow: none; overflow: hidden; }
+            .dropdown:hover .dropdown-menu { display: none; }
+            .dropdown.open .dropdown-menu { display: block; }
+            .dropdown-menu a { min-height: 46px; padding: 12px; background: #f8fafc; font-size: 0.95rem; }
+        }
+
         .bubble-image-slot img {
             width: 50%; /* ここでお好みのサイズ（60%など）に調整 */
             height: auto;
@@ -391,6 +441,70 @@
 </head>
 <body>
 
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo-area">
+                <img src="public/images/sensei-zukan-logo.png" alt="先生図鑑" class="nav-logo">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="メニュー開閉">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="about-us.html" class="nav-item"><img src="public/images/about-us-icon.png" alt="先生図鑑とは" class="nav-matching-icon">先生図鑑とは</a>
+                <a href="#" class="nav-item active" id="navTeacherIntro"><img src="public/images/teachers-icon.png" alt="先生紹介" class="nav-matching-icon">先生紹介</a>
+                <div class="dropdown" id="deptDropdown">
+                    <span class="nav-item"><img src="public/images/department-icon.png" alt="学科一覧" class="nav-matching-icon">学科一覧</span>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dept-m" data-dept="機械工学科">機械工学科</a>
+                        <a href="#" class="dept-e" data-dept="電気情報工学科">電気情報工学科</a>
+                        <a href="#" class="dept-d" data-dept="電子制御工学科">電子制御工学科</a>
+                        <a href="#" class="dept-j" data-dept="情報工学科">情報工学科</a>
+                        <a href="#" class="dept-c" data-dept="環境・建設工学科">環境・建設工学科</a>
+                        <a href="#" class="dept-h" data-dept="人文科学科">人文科学科</a>
+                        <a href="#" class="dept-s" data-dept="数理科学科">数理科学科</a>
+                    </div>
+                </div>
+                <a href="#" class="nav-item" id="navTeacherSearch">
+                    <img src="public/images/search-icon.png" alt="検索アイコン" class="nav-search-icon">先生を検索
+                </a>
+                <a href="research-matching.html" class="nav-item"><img src="public/images/matching-icon.png" alt="研究室マッチング" class="nav-matching-icon">研究室マッチング</a>
+                <a href="https://www.matsue-ct.ac.jp/" class="nav-item"><img src="public/images/home-icon.png" alt="ホームページ" class="nav-home-icon">ホームページ</a>
+            </nav>
+        </div>
+    </header>
+
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo-area">
+                <img src="public/images/sensei-zukan-logo.png" alt="先生図鑑" class="nav-logo">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="メニュー開閉">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="about-us.html" class="nav-item"><img src="public/images/about-us-icon.png" alt="先生図鑑とは" class="nav-matching-icon">先生図鑑とは</a>
+                <a href="#" class="nav-item active" id="navTeacherIntro"><img src="public/images/teachers-icon.png" alt="先生紹介" class="nav-matching-icon">先生紹介</a>
+                <div class="dropdown" id="deptDropdown">
+                    <span class="nav-item"><img src="public/images/department-icon.png" alt="学科一覧" class="nav-matching-icon">学科一覧</span>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dept-m" data-dept="機械工学科">機械工学科</a>
+                        <a href="#" class="dept-e" data-dept="電気情報工学科">電気情報工学科</a>
+                        <a href="#" class="dept-d" data-dept="電子制御工学科">電子制御工学科</a>
+                        <a href="#" class="dept-j" data-dept="情報工学科">情報工学科</a>
+                        <a href="#" class="dept-c" data-dept="環境・建設工学科">環境・建設工学科</a>
+                        <a href="#" class="dept-h" data-dept="人文科学科">人文科学科</a>
+                        <a href="#" class="dept-s" data-dept="数理科学科">数理科学科</a>
+                    </div>
+                </div>
+                <a href="#" class="nav-item" id="navTeacherSearch">
+                    <img src="public/images/search-icon.png" alt="検索アイコン" class="nav-search-icon">先生を検索
+                </a>
+                <a href="research-matching.html" class="nav-item"><img src="public/images/matching-icon.png" alt="研究室マッチング" class="nav-matching-icon">研究室マッチング</a>
+                <a href="https://www.matsue-ct.ac.jp/" class="nav-item"><img src="public/images/home-icon.png" alt="ホームページ" class="nav-home-icon">ホームページ</a>
+            </nav>
+        </div>
+    </header>
+
     <div class="profile-container">
         <header class="sns-profile-card">
             <div class="cover-photo"></div>
@@ -398,7 +512,7 @@
                 <div class="profile-top-row">
                     <div class="profile-icon-wrap">
                         <!-- ここに貼り付けたい画像を設置 -->
-                        <img src="horiuchi-tadashi.jpg" alt="堀内教授">
+                        <img src="public/images/horiuchi-tadashi.jpg" alt="堀内教授">
                     </div>
                     <div class="profile-actions">
                         <a href="index.html"
@@ -452,7 +566,7 @@
             <div class="message teacher">
                 <div class="avatar-box">
                     <!-- ここに貼り付けたい画像を設置 -->
-                    <img src="horiuchi-tadashi.jpg" alt="堀内先生">
+                    <img src="public/images/horiuchi-tadashi.jpg" alt="堀内先生">
                     <span class="avatar-label">堀内先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -472,7 +586,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="horiuchi-tadashi.jpg" alt="堀内先生">
+                    <img src="public/images/horiuchi-tadashi.jpg" alt="堀内先生">
                     <span class="avatar-label">堀内先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -480,13 +594,13 @@
                     <div class="answer-content">
                         私はAIの中でも強化学習という技術を使ってロボットを制御する研究を行っています。強化学習というのは、ロボットが人間の望んでいる行動をした場合には「報酬」を与えて、逆に望んでいない行動をした場合は「罰」を与えるという仕組みを導入してロボット自身に学習してもらいます。こうすることで、効率的な行動をロボット自身に学習させます。
                         <div class="bubble-image-slot">
-                            <img src="horiuchi-robot1.jpg" alt="画像説明">
+                            <img src="public/images/horiuchi-robot1.jpg" alt="画像説明">
                             <div class="bubble-image-caption">
                                 AIを搭載したロボット(正面)
                             </div>
                         </div>
                         <div class="bubble-image-slot">
-                            <img src="horiuchi-robot2.jpg" alt="画像説明">
+                            <img src="public/images/horiuchi-robot2.jpg" alt="画像説明">
                             <div class="bubble-image-caption">
                                 AIを搭載したロボット(背面)
                             </div>
@@ -504,7 +618,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="horiuchi-tadashi.jpg" alt="堀内先生">
+                    <img src="public/images/horiuchi-tadashi.jpg" alt="堀内先生">
                     <span class="avatar-label">堀内先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -512,7 +626,7 @@
                     <div class="answer-content">
                         この研究は、ローイング競技に使われているボートとオールにセンサを付け、選手やボートの動きを測るというものです。私の研究の売りは、屋外でもオールの動きを3次元で測れることです。このセンサをオールの持ち手に付けます。普通ならセンサをオールの先端に付けなければ測れませんが、私の技術ではセンサを持ち手に付けても反対側にあるブレードの角度や位置を、オールの長さと加速度センサから計算して推定できます。
                         <div class="bubble-image-slot">
-                            <img src="horiuchi-robot3.jpg" alt="画像説明">
+                            <img src="public/images/horiuchi-robot3.jpg" alt="画像説明">
                             <div class="bubble-image-caption">
                                 ローイング器具に取り付けるセンサ
                             </div>
@@ -530,7 +644,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="horiuchi-tadashi.jpg" alt="堀内先生">
+                    <img src="public/images/horiuchi-tadashi.jpg" alt="堀内先生">
                     <span class="avatar-label">堀内先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -552,7 +666,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="horiuchi-tadashi.jpg" alt="堀内先生">
+                    <img src="public/images/horiuchi-tadashi.jpg" alt="堀内先生">
                     <span class="avatar-label">堀内先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -572,7 +686,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="horiuchi-tadashi.jpg" alt="堀内先生">
+                    <img src="public/images/horiuchi-tadashi.jpg" alt="堀内先生">
                     <span class="avatar-label">堀内先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -596,7 +710,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="horiuchi-tadashi.jpg" alt="堀内先生">
+                    <img src="public/images/horiuchi-tadashi.jpg" alt="堀内先生">
                     <span class="avatar-label">堀内先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -618,7 +732,7 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="horiuchi-tadashi.jpg" alt="堀内先生">
+                    <img src="public/images/horiuchi-tadashi.jpg" alt="堀内先生">
                     <span class="avatar-label">堀内先生</span>
                 </div>
                 <div class="bubble clickable-answer">
@@ -645,6 +759,34 @@
     </footer>
 
     <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const deptDropdown = document.getElementById('deptDropdown');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('open');
+                navLinks.classList.toggle('open');
+            });
+
+            navLinks.querySelectorAll('a[href]:not([href="#"])').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('open');
+                    navLinks.classList.remove('open');
+                    deptDropdown?.classList.remove('open');
+                });
+            });
+        }
+
+        if (deptDropdown) {
+            deptDropdown.querySelector('.nav-item').addEventListener('click', event => {
+                if (window.innerWidth <= 1024) {
+                    event.stopPropagation();
+                    deptDropdown.classList.toggle('open');
+                }
+            });
+        }
+
         document.querySelectorAll('.clickable-answer').forEach(bubble => {
             bubble.addEventListener('click', function () {
                 if (!this.classList.contains('is-opened')) {
