@@ -49,7 +49,7 @@
         .nav-item { font-size: 1rem; text-decoration: none; color: #4b5563; padding: 0 16px; white-space: nowrap; height: var(--header-height-pc); display: flex; align-items: center; font-weight: 500; transition: all 0.2s ease; border-bottom: 3px solid transparent; cursor: pointer; }
         .nav-item:hover, .dropdown:hover > .nav-item { background: #f8fafc; }
         .nav-item.active { background-color: #f1f5f9; color: #334155; border-bottom-color: var(--color-all); }
-        .nav-about-us-icon, .nav-teacher2-icon, .nav-subject-icon, .nav-search-icon, .nav-matching-icon, .nav-home-icon { width: 30px; height: 30px; margin-right: 8px; object-fit: contain; opacity: 0.8; }
+        .nav-about-us-icon, .nav-teacher2-icon, .nav-subject-icon, .nav-search-icon, .nav-matching-icon, .nav-returning-icon, .nav-home-icon { width: 30px; height: 30px; margin-right: 8px; object-fit: contain; opacity: 0.8; }
         .dropdown { position: relative; height: 100%; display: flex; align-items: center; }
         .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background-color: white; min-width: 200px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-radius: 0 0 8px 8px; overflow: hidden; z-index: 1001; }
         .dropdown-menu a { color: #4b5563; padding: 12px 18px; text-decoration: none; display: block; font-size: 0.92rem; transition: all 0.2s ease; border-left: 4px solid transparent; }
@@ -450,23 +450,10 @@
                 <span></span><span></span><span></span>
             </button>
             <nav class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-item"><img src="public/images/returning-icon.png" alt="トップページに戻る"
+                        class="nav-matching-icon">トップページに戻る</a>
                 <a href="about-us.html" class="nav-item"><img src="public/images/about-us-icon.png" alt="先生図鑑とは" class="nav-matching-icon">先生図鑑とは</a>
                 <a href="index.html" class="nav-item active" id="navTeacherIntro"><img src="public/images/teachers-icon.png" alt="先生紹介" class="nav-matching-icon">先生紹介</a>
-                <div class="dropdown" id="deptDropdown">
-                    <span class="nav-item"><img src="public/images/department-icon.png" alt="学科一覧" class="nav-matching-icon">学科一覧</span>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dept-m" data-dept="機械工学科">機械工学科</a>
-                        <a href="#" class="dept-e" data-dept="電気情報工学科">電気情報工学科</a>
-                        <a href="#" class="dept-d" data-dept="電子制御工学科">電子制御工学科</a>
-                        <a href="#" class="dept-j" data-dept="情報工学科">情報工学科</a>
-                        <a href="#" class="dept-c" data-dept="環境・建設工学科">環境・建設工学科</a>
-                        <a href="#" class="dept-h" data-dept="人文科学科">人文科学科</a>
-                        <a href="#" class="dept-s" data-dept="数理科学科">数理科学科</a>
-                    </div>
-                </div>
-                <a href="#" class="nav-item" id="navTeacherSearch">
-                    <img src="public/images/search-icon.png" alt="検索アイコン" class="nav-search-icon">先生を検索
-                </a>
                 <a href="public/article-others/research-matching.html" class="nav-item"><img src="public/images/matching-icon.png" alt="研究室マッチング" class="nav-matching-icon">研究室マッチング</a>
                 <a href="https://www.matsue-ct.ac.jp/" class="nav-item"><img src="public/images/home-icon.png" alt="ホームページ" class="nav-home-icon">ホームページ</a>
             </nav>
