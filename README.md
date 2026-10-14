@@ -99,7 +99,7 @@ PythonからMySQLへ接続する場合はターミナルにて以下のコマン
 
 python3 research-matching.py
 
-## test-data.sqlからプログラムを実行する場合
+## test-data.sqlからデータを登録する場合
 
 test-data.sqlを用いてMySQLへ接続する場合はターミナルにて以下のコマンドを入力してください.
 
