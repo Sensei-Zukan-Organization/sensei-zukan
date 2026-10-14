@@ -86,15 +86,24 @@ mainブランチには完成したコードを置きます.
 
 ・sudo mysql (MySQLの起動)
 
+
+・mysql --protocol=TCP -h 127.0.0.1 -P 3306 -u sensei_app -p Sensei_Zukan（TCPで接続する場合）
+
 ## Sensei_Zukan（データベース）に入る場合
 
-mysql> use Sensei_Zukan;
+mysql> USE Sensei_Zukan;
 
-## PythonからMySQLへ接続する場合
+## Pythonからプログラムを実行する場合
 
 PythonからMySQLへ接続する場合はターミナルにて以下のコマンドを入力してください.
 
 python3 research-matching.py
+
+## test-data.sqlからプログラムを実行する場合
+
+test-data.sqlを用いてMySQLへ接続する場合はターミナルにて以下のコマンドを入力してください.
+
+mysql --protocol=TCP -h 127.0.0.1 -P 3306 -u sensei_app -p < test-data.sql
 
 ## データを入力する場合
 
@@ -109,6 +118,10 @@ Sensei_Zukan（データベース）には以下のテーブルがあります.
 ・Subjects（研究に必要な科目）
 
 ・Elements（研究相談の頻度・雰囲気）
+
+★ 主キー
+
+☆ 外部キー
 
 ### Teachers（テーブル）
 
@@ -147,7 +160,3 @@ Sensei_Zukan（データベース）には以下のテーブルがあります.
 ・Interview_Frequency（研究相談の頻度）
 
 ・Atmosphere（研究室の雰囲気）
-
-★ 主キー
-
-☆ 外部キー
