@@ -74,6 +74,20 @@ mainブランチには完成したコードを置きます.
 
 → feature-Overall
 
+## mainブランチを他のブランチにも適用させる場合
+
+例：mainブランチの内容をfeature-Research_Matchingに適用する場合
+
+→ git status（① 現在の変更を確認）
+
+→ git fetch origin（② リモートの最新情報を取得）
+
+→ git switch feature-Research_Matching（③ 対象のブランチに切り替え）
+
+→ git reset --hard origin/main（④ mainブランチと同じ状態に変更）
+
+→ git push --force-with-lease origin feature-Research_Matching（⑤ GitHubに反映）
+
 # MySQLについて
 
 研究室マッチングを作成する際にMySQL・Pythonを使用します.
@@ -97,13 +111,13 @@ mysql> USE Sensei_Zukan;
 
 PythonからMySQLへ接続する場合はターミナルにて以下のコマンドを入力してください.
 
-python3 research-matching.py
+・python3 research-matching.py
 
 ## test-data.sqlからデータを登録する場合
 
 test-data.sqlを用いてMySQLへ接続する場合はターミナルにて以下のコマンドを入力してください.
 
-mysql --protocol=TCP -h 127.0.0.1 -P 3306 -u sensei_app -p < test-data.sql
+・mysql --protocol=TCP -h 127.0.0.1 -P 3306 -u sensei_app -p < test-data.sql
 
 ## データを入力する場合
 
