@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>先生図鑑 芦田洋一郎 准教授</title>
+    <title>先生図鑑 高見昭康 教授</title>
+    <link rel="stylesheet" href="/public/css/teacher-header.css">
     <link rel="icon" href="/sensei-zukan/public/images/sensei-zukan-icon.png" type="image/png">
     <link rel="apple-touch-icon" href="/sensei-zukan/public/images/sensei-zukan-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="teacher-header.css">
     <style>
         /* Base Styles */
-        /* Base Styles */
         :root {
             --bg-color: #f8fafc;
             --text-main: #2d3436;
             --text-muted: #64748b;
-            --primary-color: #f59e0b; /* 鮮やかなオレンジ */
-            --accent-color: #d97706; /* 深みのある琥珀色・ダークオレンジ */
+            --primary-color: #ef4444; /* #3b82f6 (青) ➔ 機械工学科の赤に変更 */
+            --accent-color: #b91c1c; /* #1d4ed8 (濃い青) ➔ グラデーションの濃い赤に変更 */
             --student-bubble-bg: #ffffff;
             --student-border: #e2e8f0;
-            --teacher-bubble-bg: #fffbeb;
-            --teacher-border: #fef3c7;
-            --marker-color: rgba(245, 158, 11, 0.2);
+            --teacher-bubble-bg: #fff5f5; /* #eff6ff (ごく淡い青) ➔ ごく淡い赤に変更 */
+            --teacher-border: #fecdd3; /* #dbeafe (青系枠線) ➔ 赤系枠線に変更 */
+            --marker-color: rgba(239, 68, 68, 0.2); /* 青系の透過 ➔ 赤系の透過に変更 */
         }
 
         * {
@@ -89,7 +89,6 @@
                 height: 100%;
                 border-radius: 50%;
                 object-fit: cover;
-                /* 添付画像の顔の位置に合わせて微調整が必要な場合はここを調整 */
                 object-position: center top;
             }
 
@@ -125,14 +124,14 @@
             border-radius: 6px;
             font-weight: 500;
             font-size: 1rem;
-            background: rgba(245, 158, 11, 0.08);
+            background: rgba(239, 68, 68, 0.08); /* rgba(59, 130, 246, 0.08) ➔ 赤の透過背景 */
             color: var(--accent-color);
-            border: 1px solid rgba(245, 158, 11, 0.25);
+            border: 1px solid rgba(239, 68, 68, 0.25); /* rgba(59, 130, 246, 0.25) ➔ 赤の透過枠線 */
             transition: all 0.2s;
         }
 
             .info-tag:hover {
-                background: rgba(245, 158, 11, 0.15);
+                background: rgba(239, 68, 68, 0.15); /* rgba(59, 130, 246, 0.15) ➔ 赤のホバー時背景 */
                 color: var(--accent-color);
             }
 
@@ -367,12 +366,10 @@
                 gap: 1rem;
             }
 
-            /* 【修正】文字サイズを2.2remから、スマホ向けに適切な大きさ（1.6rem等）に変更 */
             .profile-names h1 {
                 font-size: 1.6rem;
             }
 
-            /* 【修正】中央寄せ（center）になっていたものを左寄せ（left）に変更 */
             .profile-main {
                 text-align: left;
             }
@@ -385,7 +382,6 @@
                 max-width: 100%;
             }
 
-            /* 【修正】縦並び＆中央寄せになっていたのを、左寄せ（flex-start）に変更 */
             .info-row {
                 flex-direction: column;
                 align-items: flex-start;
@@ -394,11 +390,11 @@
         }
 
         .bubble-image-slot img {
-            width: 50%; /* ここでお好みのサイズ（60%など）に調整 */
+            width: 50%;
             height: auto;
             display: block;
-            margin: 10px auto; /* 画像の上下に隙間を作り、中央寄せにする */
-            border-radius: 12px; /* 角を少し丸くすると綺麗です */
+            margin: 10px auto;
+            border-radius: 12px;
         }
     </style>
 </head>
@@ -406,18 +402,18 @@
 
     <header class="top-nav">
         <div class="nav-container">
-            <a href="/sensei-zukan/" class="nav-logo-area">
+            <a href="/sensei-zukan/public/" class="nav-logo-area">
                 <img src="/sensei-zukan/public/images/sensei-zukan-logo.png" alt="先生図鑑" class="nav-logo">
             </a>
             <button class="menu-toggle" id="menuToggle" aria-label="メニュー開閉">
                 <span></span><span></span><span></span>
             </button>
             <nav class="nav-links" id="navLinks">
-                <a href="/sensei-zukan/" class="nav-item"><img src="/sensei-zukan/public/images/returning-icon.png" alt="トップページに戻る"
+                <a href="/sensei-zukan/public/" class="nav-item"><img src="/sensei-zukan/public/images/returning-icon.png" alt="トップページに戻る"
                         class="nav-matching-icon">トップページに戻る</a>
-                <a href="/sensei-zukan/public/articles/others/about-us.html" class="nav-item"><img src="/sensei-zukan/public/images/about-us-icon.png" alt="先生図鑑とは" class="nav-matching-icon">先生図鑑とは</a>
-                <a href="/sensei-zukan/" class="nav-item active" id="navTeacherIntro"><img src="/sensei-zukan/public/images/teachers-icon.png" alt="先生紹介" class="nav-matching-icon">先生紹介</a> 
-                <a href="/sensei-zukan/public/articles/others/research-matching.html" class="nav-item"><img src="/sensei-zukan/public/images/matching-icon.png" alt="研究室マッチング" class="nav-matching-icon">研究室マッチング</a>
+                <a href="/sensei-zukan/public/about-us.html" class="nav-item"><img src="/sensei-zukan/public/images/about-us-icon.png" alt="先生図鑑とは" class="nav-matching-icon">先生図鑑とは</a>
+                <a href="/sensei-zukan/public/" class="nav-item active" id="navTeacherIntro"><img src="/sensei-zukan/public/images/teachers-icon.png" alt="先生紹介" class="nav-matching-icon">先生紹介</a>
+                <a href="/sensei-zukan/public/research-matching.html" class="nav-item"><img src="/sensei-zukan/public/images/matching-icon.png" alt="研究室マッチング" class="nav-matching-icon">研究室マッチング</a>
                 <a href="https://www.matsue-ct.ac.jp/" class="nav-item"><img src="/sensei-zukan/public/images/home-icon.png" alt="ホームページ" class="nav-home-icon">ホームページ</a>
             </nav>
         </div>
@@ -429,39 +425,40 @@
             <div class="profile-main">
                 <div class="profile-top-row">
                     <div class="profile-icon-wrap">
-                        <!-- ここに貼り付けたい画像を設置 -->
-                        <img src="/sensei-zukan/public/images/ashida-yoichiro.jpg" alt="芦田准教授">
+                        <img src="/sensei-zukan/public/images/dept-m/takami-akiyasu.jpg" alt="高見教授">
                     </div>
                     <div class="profile-actions">
-                        <a href="/sensei-zukan/"
+                        <a href="/sensei-zukan/public/"
                            class="btn btn-secondary"
-                           style="text-decoration: none; display: inline-block; line-height: 1.2; vertical-align: middle;">先生図鑑 004</a>
+                           style="text-decoration: none; display: inline-block; line-height: 1.2; vertical-align: middle;">先生図鑑 005</a>
                     </div>
                 </div>
 
                 <div class="profile-names">
-                    <h1>芦田 洋一郎 / 准教授</h1>
-                    <span class="handle">Dr. Yoichiro Ashida / 芦田研究室</span>
+                    <h1>高見昭康 / 教授</h1>
+                    <span class="handle">Dr. Akiyasu Takami / 高見研究室</span>
                 </div>
 
                 <div class="info-row">
                     <span class="info-label">学科</span>
                     <div class="tag-container">
-                        <span class="info-tag">#電気情報工学科</span>
-                        <span class="info-tag">#E科</span>
+                        <span class="info-tag">#機械工学科</span>
+                        <span class="info-tag">#M科</span>
                     </div>
                 </div>
                 <div class="info-row">
                     <span class="info-label">教科内容</span>
                     <div class="tag-container">
-                        <span class="info-tag">#基礎コンピュータ工学</span>
-                        <span class="info-tag">#電気情報創造演習</span>
+                        <span class="info-tag">#材料力学</span>
+                        <span class="info-tag">#機械力学</span>
                     </div>
                 </div>
                 <div class="info-row">
                     <span class="info-label">研究分野</span>
                     <div class="tag-container">
-                        <span class="info-tag">#自動制御</span>
+                        <span class="info-tag">#ものづくり技術</span>
+                        <span class="info-tag">#材料力学</span>
+                        <span class="info-tag">#機械材料</span>
                     </div>
                 </div>
             </div>
@@ -471,6 +468,7 @@
     <main class="article-container">
         <div class="qa-list">
 
+            <!-- 質問1 -->
             <div class="message student">
                 <div class="bubble">
                     <span class="student-label">学生</span>
@@ -480,48 +478,60 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <!-- ここに貼り付けたい画像を設置 -->
-                    <img src="/sensei-zukan/public/images/ashida-yoichiro.jpg" alt="芦田先生">
-                    <span class="avatar-label">芦田先生</span>
+                    <img src="/sensei-zukan/public/images/dept-m/takami-akiyasu.jpg" alt="高見先生">
+                    <span class="avatar-label">高見先生</span>
                 </div>
                 <div class="bubble clickable-answer">
                     <span class="dots">（先生の回答を見る）</span>
                     <div class="answer-content">
-                        現在は主に「自動制御」と呼ばれる分野の研究をしています。自動制御は、電気系だけでなく機械系や科学系など、学科を横断して幅広く応用できる技術であり、大元の数学的な理論を研究することで多様な対象に適用できるのが面白いところです。身近な例では、部屋のエアコンを設定温度に保つために風量や電力をどう調整するかというのも自動制御のひとつです。
-                        <br>
-                        また、制御対象の「規模」によってアプローチが変わってくることも特徴です。巨大なシステムでは、そこ独自の問題が発生しますし、小さいものでは一つ一つの制御自体は簡単なものであっても、それを改善することで非常に多くの製品が影響を受け、社会にとってプラスに働くこともあります。
+                        私の研究分野は計算力学で、コンピューターシミュレーションを用いた材料力学の研究を行っています。現在行っているのは、最も丈夫な形を自動的に導き出す「形状最適化」です。特に「トポロジー最適化」では、人間が思いつかないような複雑で面白い形状を創出することが可能です。現在は学生と共に、2次元の柱や梁の解析から発展し、複雑な3次元構造の解析など、力学現象の解明に取り組んでいます。
                     </div>
                 </div>
             </div>
 
+            <!-- 質問2 -->
             <div class="message student">
                 <div class="bubble">
                     <span class="student-label">学生</span>
-                    卒業研究、スタートアップゼミについて教えてください。
+                    共同研究について教えてください。
                 </div>
             </div>
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="/sensei-zukan/public/images/ashida-yoichiro.jpg" alt="芦田先生">
-                    <span class="avatar-label">芦田先生</span>
+                    <img src="/sensei-zukan/public/images/dept-m/takami-akiyasu.jpg" alt="高見先生">
+                    <span class="avatar-label">高見先生</span>
                 </div>
                 <div class="bubble clickable-answer">
                     <span class="dots">（先生の回答を見る）</span>
                     <div class="answer-content">
-                        現在、スタートアップゼミでは3つのテーマに取り組んでいます。
-                        <br>
-                        1つ目は英語学習アプリの開発です。これは卒業研究のテーマでもあり、広島大学の先生と協力しながら、松江高専の下級生も集めてWebアプリケーションを開発しています。
-                        <br>
-                        2つ目はものづくりです。コンピューターを用いたシミュレーションを活用しながら、実際のものづくりにつなげることを目指しています。現在は工作教室で使用する教材の製作に取り組んでいます。例えば、自動ブレーキを搭載した車が壁の何cm手前で停止するかをコンピューター上で再現し、事前に調整することで実機での試行錯誤を減らそうとしています。また、小学生や中学生向けの教材として活用することも考えています。
-                        <br>
-                        3つ目は自動制御に関するテーマです。今年始めたばかりですが、他学科との分野融合を図りながら研究を進めようとしています。例えば、植物栽培に適した制御方法の検討や、住宅模型を用いた空調・日射制御による省エネルギー化と快適性の両立について実験を行う予定です。
-                        卒業研究では制御系のテーマに取り組む学生が多いですが、現在はスタートアップゼミ活動と連携して英語学習アプリを開発している学生や、松江高専の案内地図アプリの改良版を制作している学生もいます。また、過去にはD科の学生が卒業研究に参加したこともあります。
-
+                        共同研究では様々な分野と連携しながら取り組んでいます。島根大学医学部とは、骨を固定するためのネジ（チタンや新素材）の耐久性を解析する医療工学研究を行っています。また、地元企業から装置を借りてIoTよる加工機のモニタリングを行うほか、同じ学科の先生方や他の学科の先生方と協力してバイクの走行解析や波力発電用タービンの効率計算などにも携わってきました。シミュレーションは、多様なモノづくりの現場で応用されている技術です。
                     </div>
                 </div>
             </div>
 
+            <!-- 質問3 -->
+            <div class="message student">
+                <div class="bubble">
+                    <span class="student-label">学生</span>
+                    研究のやりがいについて教えてください。
+                </div>
+            </div>
+
+            <div class="message teacher">
+                <div class="avatar-box">
+                    <img src="/sensei-zukan/public/images/dept-m/takami-akiyasu.jpg" alt="高見先生">
+                    <span class="avatar-label">高見先生</span>
+                </div>
+                <div class="bubble clickable-answer">
+                    <span class="dots">（先生の回答を見る）</span>
+                    <div class="answer-content">
+                        新しいことを研究して、出来上がることや発見できることが研究者としてのやりがいです。シミュレーションを通じて「何が本当に正しいのか」「どうすれば最も丈夫な形になるのか」という真実を突き止めることが非常に嬉しいですね。また、シミュレーションした形状を、企業が実際に製品化して見せてくれたときも嬉しかったです。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 質問4 -->
             <div class="message student">
                 <div class="bubble">
                     <span class="student-label">学生</span>
@@ -531,68 +541,60 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="/sensei-zukan/public/images/ashida-yoichiro.jpg" alt="芦田先生">
-                    <span class="avatar-label">芦田先生</span>
+                    <img src="/sensei-zukan/public/images/dept-m/takami-akiyasu.jpg" alt="高見先生">
+                    <span class="avatar-label">高見先生</span>
                 </div>
                 <div class="bubble clickable-answer">
                     <span class="dots">（先生の回答を見る）</span>
                     <div class="answer-content">
-                        幼い頃から工学への興味はありましたが、当初から強く志望していたわけではなく、大学受験の時にもともと好きだった工学部に進学することを決めました。
-                        <br>
-                        今の「自動制御」という研究分野を本格的に取り組み始めたのは大学4年生の時です。3年生の時の実験の授業が面白かったことに加え、当時の教授が力のある方で、就職面での安心感があったことが研究室を選んだ理由でした。
-                        <br>
-                        当初は博士課程への進学や教員になることは考えていませんでしたが、修士課程の間に、同じ研究室の先輩が大学や高専の教員になっているケースも多かったので、そこに関してのハードルは低かったように思います。
-                        博士課程に進んでからも企業への就職を視野に入れていましたが、たまたま同じ教授の指導を受けた片山先生(電気情報工学科)から公募の声をかけていただいたことがきっかけとなり、それを受験して現在は松江高専で教員をしています
+                        中学校の恩師に勧められて松江高専の機械工学科に進学しました。卒業後は豊橋技術科学大学へ進学しました。技科大の学部4年生の時に、今の研究にまでつながるシミュレーションを始めました。その後、指導教員の勧めで博士課程まで進み、大学・大学院で計7年間研究をしました。その時の恩師に教員を勧められて母校の松江高専に帰ってきました。最初の12年間は数学の教員をしていました。その後、縁があって本来の専門分野である機械工学科の教員へ転向しました。　
                     </div>
                 </div>
             </div>
 
+            <!-- 質問5 -->
             <div class="message student">
                 <div class="bubble">
                     <span class="student-label">学生</span>
-                    電気情報工学科の魅力は何ですか？
+                    高専時代の経験について教えてください。
                 </div>
             </div>
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="/sensei-zukan/public/images/ashida-yoichiro.jpg" alt="芦田先生">
-                    <span class="avatar-label">芦田先生</span>
+                    <img src="/sensei-zukan/public/images/dept-m/takami-akiyasu.jpg" alt="高見先生">
+                    <span class="avatar-label">高見先生</span>
                 </div>
                 <div class="bubble clickable-answer">
                     <span class="dots">（先生の回答を見る）</span>
                     <div class="answer-content">
-                        電気情報工学科は、一番就職先が多い学科というのが魅力のひとつです。
-                        <br>
-                        昨年(令和7年度) の電気情報工学科2年生の研修旅行では、化学分野のエチレンを作っている会社と食品会社の工場の2か所を見学しました。工場に電気技術は必要不可欠であり、それを支えるエンジニアの需要も高いです。
-                        電気は昔からある技術なので最先端というイメージが薄く、人気が下がっているように感じます。ですが、昔からあるということは長い間必要とされ続けている技術だということです。そういった基盤となる技術を学べるのは魅力だと思います。特に、電気の扱い方や電力、インフラに興味がある学生が向いている学科です。私は普通科高校の出身ですが、高専は普通科高校のような大学受験もなく、比較的自由な時間が多いと思います。
-                        <br>
-                        また専門性の高い先生がたくさんおられるので、興味を持った分野についてすぐに詳しい話を聞けることもいいところです。
-
+                        松江高専に在学していたときは寮生活でしたので、他の寮生と楽しく過ごしていました。夏休みには寮の友達の家へ泊りに行ったこともありましたね。また、体育祭や学園祭もいい思い出です。今はありませんが、当時は体育祭でデコレーション制作などを行っており、1年生から4年生までが協力し、大きな絵を掲げて応援合戦をしたのはとてもいい経験になりました。今の学生会活動に近いかもしれませんね。
                     </div>
                 </div>
             </div>
 
+            <!-- 質問6 -->
             <div class="message student">
                 <div class="bubble">
                     <span class="student-label">学生</span>
-                    教員のやりがいは何ですか？
+                    教員を目指されたきっかけを教えてください。
                 </div>
             </div>
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="/sensei-zukan/public/images/ashida-yoichiro.jpg" alt="芦田先生">
-                    <span class="avatar-label">芦田先生</span>
+                    <img src="/sensei-zukan/public/images/dept-m/takami-akiyasu.jpg" alt="高見先生">
+                    <span class="avatar-label">高見先生</span>
                 </div>
                 <div class="bubble clickable-answer">
                     <span class="dots">（先生の回答を見る）</span>
                     <div class="answer-content">
-                        高専では大学と違って教員が担任を持つため、学生と距離が近いのがいいところだと思っています。教え子が無事5年間で卒業してくれると嬉しいですし、達成感を感じます。また、担任をすることで自分のことをよく知ってもらえて、卒業研究の人気が上がったりもします。一方で、毎朝SHRに行かないといけなかったり、成績や進路の面でサポートをしたりと、大変なこともあります。ですが、研修旅行に連れて行ったり、よく知っている学生が増えて会話をしたりするのは楽しく、やりがいです。
+                        教員を志したきっかけは、家庭教師の経験と恩師の勧めからですね。技科大時代に家庭教師のアルバイトをしていて、教えた生徒の合格などの助けができたことがきっかけで、教えることが好きになりました。さらに、恩師に教員を勧められたこともあり、母校で教えることを目指しました。やはり、教えることで理解してもらえるなど、学生の成長を見ることが一番のモチベーションです。また、卒業の際に感謝の言葉をもらったり、再開した教え子から「今頑張っています」という報告を聞いたりすると非常に嬉しいです。
                     </div>
                 </div>
             </div>
 
+            <!-- 質問7 -->
             <div class="message student">
                 <div class="bubble">
                     <span class="student-label">学生</span>
@@ -602,49 +604,32 @@
 
             <div class="message teacher">
                 <div class="avatar-box">
-                    <img src="/sensei-zukan/public/images/ashida-yoichiro.jpg" alt="芦田先生">
-                    <span class="avatar-label">芦田先生</span>
+                    <img src="/sensei-zukan/public/images/dept-m/takami-akiyasu.jpg" alt="高見先生">
+                    <span class="avatar-label">高見先生</span>
                 </div>
                 <div class="bubble clickable-answer">
                     <span class="dots">（先生の回答を見る）</span>
                     <div class="answer-content">
-                        高専では、専門的な知識や技術を深く学べる一方で、人との繋がりをつくり色々な活動をして欲しいです。成績が良いことに越したことはないですが必ずしも成績だけで将来が決まるわけではありません。スタートアップゼミなどの高専でしかできない活動を通して、多くの人と知り合う事によって将来、仕事関係や転職活動で役に立つことがあります。ぜひ、クラスだけではなく外部など色々な人と関わって欲しいです。
+                        基礎学力をしっかり身に着けてほしいです。元数学教師として、数学はおろそかにしないでほしいですね。数学ができるとできないとでは、就職後の給料も変わってくるようです。
+                        <br>
+                        最近は松江高専でもスタートアップゼミや海外研修など、さまざまなことにチャレンジする学生が増えています。自分が松江高専の学生だった頃はそういったチャンスが少なく、とても貴重な経験だと思うので、ぜひいろいろなことに携わって、羽ばたいていってほしいです。
                     </div>
                 </div>
             </div>
 
+            <!-- 最後のまとめ（感想） -->
             <div class="message student">
                 <div class="bubble">
                     <span class="student-label">学生</span>
-                    中学生へのメッセージをお願いします。
+                    私の１年生の時の担任が高見先生だったのですが、当時に知ることができなかった研究分野や先生自身のお話を聞くことができてうれしかったです。学生時代に加え、教員になってからも、今日までとても長いあいだ松江高専にいらっしゃるということに驚きました。そんな高見先生だからこそ語ることができる、今と昔の松江高専の違いのお話はとても印象深かったです。
                 </div>
             </div>
 
-            <div class="message teacher">
-                <div class="avatar-box">
-                    <img src="/sensei-zukan/public/images/ashida-yoichiro.jpg" alt="芦田先生">
-                    <span class="avatar-label">芦田先生</span>
-                </div>
-                <div class="bubble clickable-answer">
-                    <span class="dots">（先生の回答を見る）</span>
-                    <div class="answer-content">
-                        高専は自分で様々なことに取り組むことができる学校です。もちろん勉強を頑張る人もいますが、自分から動き新しい活動をしている人もたくさんいます。高専の先生方は各分野の専門家なので、興味を持ったことについての話を詳しく聞くことができます。これは高専ならではの強みです。もし高専に入学したら勉強だけでなく自分から新しいことに挑戦してもらえたらと思います。高専は活動の扉を1人でもたたきやすい学校なので自分のやりたいことがほかの学校よりもたくさんできます。
-                    </div>
-                </div>
-            </div>
-
-            <div class="message student">
-                <div class="bubble">
-                    <span class="student-label">学生</span>
-                    今回の取材では、「自動制御」という高専生にとっては切っても切り離せない重要な分野を研究されている先生にお話を伺うことができてとても興味深かったです。
-                    また、普通科出身の先生だからこそ感じる「自分の興味を自由に追求できる」という高専の魅力も、聞いていてとてもワクワクしました。そして何より、担任として学生に寄り添って下さる先生だと感じました。
-                </div>
-            </div>
         </div>
     </main>
 
     <footer class="article-footer">
-        <p>記事作成日：2026年06月25日</p>
+        <p>記事作成日：2026年07月23日</p>
     </footer>
 
     <script>
