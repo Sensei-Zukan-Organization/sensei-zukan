@@ -111,13 +111,13 @@ mysql> USE Sensei_Zukan;
 
 PythonからMySQLへ接続する場合はターミナルにて以下のコマンドを入力してください.
 
-・python3 research-matching.py
+・python3 src/python/research-matching.py
 
 ## test-data.sqlからデータを登録する場合
 
 test-data.sqlを用いてMySQLへ接続する場合はターミナルにて以下のコマンドを入力してください.
 
-・mysql --protocol=TCP -h 127.0.0.1 -P 3306 -u sensei_app -p < test-data.sql
+・mysql --protocol=TCP -h 127.0.0.1 -P 3306 -u sensei_app -p < database/test-data.sql
 
 ## データを入力する場合
 
