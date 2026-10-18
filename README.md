@@ -88,7 +88,7 @@ mainブランチには完成したコードを置きます.
 
 → git push --force-with-lease origin feature-Research_Matching（⑤ GitHubに反映）
 
-# 研究室マッチング（MySQLについて）
+# 研究室マッチングについて（MySQL）
 
 研究室マッチングを作成する際にMySQL・Pythonを使用します.
 
