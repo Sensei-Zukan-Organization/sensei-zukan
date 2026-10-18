@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>先生図鑑 ホームページ</title>
-    <link rel="stylesheet" href="/public/css/teacher-header.css">
-    <link rel="icon" href="/sensei-zukan/public/images/others/sensei-zukan-icon.png" type="image/png">
-    <link rel="apple-touch-icon" href="/sensei-zukan/public/images/others/sensei-zukan-icon.png">
+    <link rel="stylesheet" href="/css/teacher-header.css">
+    <link rel="icon" href="/sensei-zukan/images/others/sensei-zukan-icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/sensei-zukan/images/others/sensei-zukan-icon.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@700&display=swap"
         rel="stylesheet">
@@ -771,8 +771,8 @@
     <header class="top-nav">
         <div class="nav-container">
             <!-- 左側：ロゴエリア -->
-            <a href="/sensei-zukan/public/" class="nav-logo-area">
-                <img src="/sensei-zukan/public/images/others/sensei-zukan-logo.png" alt="先生図鑑" class="nav-logo">
+            <a href="/sensei-zukan/" class="nav-logo-area">
+                <img src="/sensei-zukan/images/others/sensei-zukan-logo.png" alt="先生図鑑" class="nav-logo">
             </a>
 
             <!-- ハンバーガーボタン -->
@@ -784,14 +784,14 @@
 
             <!-- 右側：ナビゲーションリンク -->
             <nav class="nav-links" id="navLinks">
-                <a href="/sensei-zukan/public/about-us.html" class="nav-item"><img src="/sensei-zukan/public/images/others/about-us-icon.png" alt="先生図鑑とは"
+                <a href="/sensei-zukan/about-us.html" class="nav-item"><img src="/sensei-zukan/images/others/about-us-icon.png" alt="先生図鑑とは"
                         class="nav-matching-icon">先生図鑑とは</a>
-                <a href="#" class="nav-item active" id="navTeacherIntro"><img src="/sensei-zukan/public/images/others/teachers-icon.png" alt="先生紹介"
+                <a href="#" class="nav-item active" id="navTeacherIntro"><img src="/sensei-zukan/images/others/teachers-icon.png" alt="先生紹介"
                         class="nav-matching-icon">先生紹介</a>
 
                 <!-- 学科一覧 (ドロップダウン) -->
                 <div class="dropdown" id="deptDropdown">
-                    <span class="nav-item"><img src="/sensei-zukan/public/images/others/department-icon.png" alt="学科一覧" class="nav-matching-icon">学科一覧</span>
+                    <span class="nav-item"><img src="/sensei-zukan/images/others/department-icon.png" alt="学科一覧" class="nav-matching-icon">学科一覧</span>
                         <div class="dropdown-menu">
                             <a href="#" class="dept-m" data-dept="機械工学科">機械工学科</a>
                             <a href="#" class="dept-e" data-dept="電気情報工学科">電気情報工学科</a>
@@ -805,13 +805,13 @@
 
                 <!-- 先生を検索 (クリックで直接検索バーを表示) -->
                 <a href="#" class="nav-item" id="navTeacherSearch">
-                    <img src="/sensei-zukan/public/images/others/search-icon.png" alt="検索アイコン" class="nav-search-icon">
+                    <img src="/sensei-zukan/images/others/search-icon.png" alt="検索アイコン" class="nav-search-icon">
                     先生を検索
                 </a>
 
-                <a href="/sensei-zukan/public/research-matching.html" class="nav-item"><img src="/sensei-zukan/public/images/others/matching-icon.png" alt="研究室マッチング"
+                <a href="/sensei-zukan/research-matching.html" class="nav-item"><img src="/sensei-zukan/images/others/matching-icon.png" alt="研究室マッチング"
                         class="nav-matching-icon">研究室マッチング</a>
-                <a href="https://www.matsue-ct.ac.jp/" class="nav-item"><img src="/sensei-zukan/public/images/others/home-icon.png" alt="ホームページ" class="nav-home-icon">ホームページ</a>
+                <a href="https://www.matsue-ct.ac.jp/" class="nav-item"><img src="/sensei-zukan/images/others/home-icon.png" alt="ホームページ" class="nav-home-icon">ホームページ</a>
             </nav>
         </div>
     </header>
@@ -821,7 +821,7 @@
         <!-- 検索バー（先生を検索が押された際に表示） -->
         <header class="header-section">
             <div class="search-container" id="searchContainer">
-                <img src="/sensei-zukan/public/images/search-icon.png" alt="検索" class="search-icon">
+                <img src="/sensei-zukan/images/search-icon.png" alt="検索" class="search-icon">
                 <input type="text" id="teacherSearch" class="search-input" placeholder="学科・研究分野から検索">
             </div>
         </header>
@@ -829,50 +829,50 @@
         <!-- 先生一覧グリッド -->
         <div class="teacher-grid" id="teacherGrid">
 
-            <a href="/sensei-zukan/public/articles/dept-d/horiuchi-tadashi.html" class="teacher-card" data-dept="電子制御工学科">
+            <a href="/sensei-zukan/articles/dept-d/horiuchi-tadashi.html" class="teacher-card" data-dept="電子制御工学科">
                 <div class="card-banner"></div>
                 <div class="card-body">
-                    <div class="card-icon-wrap"><img src="/sensei-zukan/public/images/dept-d/horiuchi-tadashi.jpg" alt="堀内 匡"></div>
+                    <div class="card-icon-wrap"><img src="/sensei-zukan/images/dept-d/horiuchi-tadashi.jpg" alt="堀内 匡"></div>
                     <h2 class="card-name">堀内 匡</h2>
                     <span class="card-dept">電子制御工学科 / 教授</span>
                     <div class="card-tags"><span class="tag">#人工知能</span><span class="tag">#強化学習</span></div>
                 </div>
             </a>
 
-            <a href="/sensei-zukan/public/articles/dept-c/yamaguchi-tsuyoshi.html" class="teacher-card" data-dept="環境・建設工学科">
+            <a href="/sensei-zukan/articles/dept-c/yamaguchi-tsuyoshi.html" class="teacher-card" data-dept="環境・建設工学科">
                 <div class="card-banner"></div>
                 <div class="card-body">
-                    <div class="card-icon-wrap"><img src="/sensei-zukan/public/images/dept-c/yamaguchi-tsuyoshi.png" alt="山口 剛士"></div>
+                    <div class="card-icon-wrap"><img src="/sensei-zukan/images/dept-c/yamaguchi-tsuyoshi.png" alt="山口 剛士"></div>
                     <h2 class="card-name">山口 剛士</h2>
                     <span class="card-dept">環境・建設工学科 / 准教授</span>
                     <div class="card-tags"><span class="tag">#環境微生物</span><span class="tag">#衛生工学</span></div>
                 </div>
             </a>
 
-            <a href="/sensei-zukan/public/articles/dept-e/ashida-yoichiro.html" class="teacher-card" data-dept="電気情報工学科">
+            <a href="/sensei-zukan/articles/dept-e/ashida-yoichiro.html" class="teacher-card" data-dept="電気情報工学科">
                 <div class="card-banner"></div>
                 <div class="card-body">
-                    <div class="card-icon-wrap"><img src="/sensei-zukan/public/images/dept-e/ashida-yoichiro.jpg" alt="芦田 洋一郎"></div>
+                    <div class="card-icon-wrap"><img src="/sensei-zukan/images/dept-e/ashida-yoichiro.jpg" alt="芦田 洋一郎"></div>
                     <h2 class="card-name">芦田 洋一郎</h2>
                     <span class="card-dept">電気情報工学科 / 准教授</span>
                     <div class="card-tags"><span class="tag">#自動制御</span></div>
                 </div>
             </a>
 
-            <a href="/sensei-zukan/public/articles/dept-m/takami-akiyasu.html" class="teacher-card" data-dept="機械工学科">
+            <a href="/sensei-zukan/articles/dept-m/takami-akiyasu.html" class="teacher-card" data-dept="機械工学科">
                 <div class="card-banner"></div>
                 <div class="card-body">
-                    <div class="card-icon-wrap"><img src="/sensei-zukan/public/images/dept-m/takami-akiyasu.jpg" alt="高見 昭康"></div>
+                    <div class="card-icon-wrap"><img src="/sensei-zukan/images/dept-m/takami-akiyasu.jpg" alt="高見 昭康"></div>
                     <h2 class="card-name">高見 昭康</h2>
                     <span class="card-dept">機械工学科 / 教授</span>
                     <div class="card-tags"><span class="tag">#ものづくり技術</span><span class="tag">#材料力学</span></div>
                 </div>
             </a>
 
-            <a href="/sensei-zukan/public/articles/dept-j/murahashi-kuriki.html" class="teacher-card" data-dept="情報工学科">
+            <a href="/sensei-zukan/articles/dept-j/murahashi-kuriki.html" class="teacher-card" data-dept="情報工学科">
                 <div class="card-banner"></div>
                 <div class="card-body">
-                    <div class="card-icon-wrap"><img src="/sensei-zukan/public/images/dept-j/murahashi-kuriki.png" alt="村橋 究理基"></div>
+                    <div class="card-icon-wrap"><img src="/sensei-zukan/images/dept-j/murahashi-kuriki.png" alt="村橋 究理基"></div>
                     <h2 class="card-name">村橋 究理基</h2>
                     <span class="card-dept">情報工学科 / 助教</span>
                     <div class="card-tags"><span class="tag">#惑星気象学</span><span class="tag">#火星</span></div>
@@ -882,7 +882,7 @@
             <div class="teacher-card" data-dept="人文科学科">
                 <div class="card-banner"></div>
                 <div class="card-body">
-                    <div class="card-icon-wrap"><img src="/sensei-zukan/public/images/others/teacher-icon.png" alt="大西 永昭"></div>
+                    <div class="card-icon-wrap"><img src="/sensei-zukan/images/others/teacher-icon.png" alt="大西 永昭"></div>
                     <h2 class="card-name">大西 永昭</h2>
                     <span class="card-dept">人文科学科 / 教授</span>
                     <div class="card-tags"><span class="tag">#日本近代文学</span><span class="tag">#日本語</span></div>
@@ -892,7 +892,7 @@
             <div class="teacher-card" data-dept="情報工学科">
                 <div class="card-banner"></div>
                 <div class="card-body">
-                    <div class="card-icon-wrap"><img src="/sensei-zukan/public/images/others/teacher-icon.png" alt="浦川 聖太郎"></div>
+                    <div class="card-icon-wrap"><img src="/sensei-zukan/images/others/teacher-icon.png" alt="浦川 聖太郎"></div>
                     <h2 class="card-name">浦川 聖太郎</h2>
                     <span class="card-dept">情報工学科 / 准教授</span>
                     <div class="card-tags"><span class="tag">#天文学</span></span><span class="tag">#シチズンサイエンス</span></div>
