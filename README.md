@@ -8,14 +8,6 @@
 
 ・JavaScript
 
-・Node.js
-
-・Express.js
-
-・MySQL（研究室マッチングに使用）
-
-・Python（研究室マッチングに使用）
-
 # 記事作成について
 
 記事作成の際に気を付けてほしいことを以下にまとめているので, 確認をお願いします.
@@ -88,89 +80,4 @@ mainブランチには完成したコードを置きます.
 
 → git push --force-with-lease origin feature-Research_Matching（⑤ GitHubに反映）
 
-# 研究室マッチングについて（MySQL）
 
-研究室マッチングを作成する際にMySQL・Pythonを使用します.
-
-## MySQLを起動する場合
-
-・sudo service mysql start (MySQLの稼働開始)
-
-・sudo service mysql status (MySQLの稼働確認)
-
-・sudo mysql (MySQLの起動)
-
-
-・mysql --protocol=TCP -h 127.0.0.1 -P 3306 -u sensei_app -p Sensei_Zukan（TCPで接続する場合）
-
-## Sensei_Zukan（データベース）に入る場合
-
-mysql> USE Sensei_Zukan;
-
-## Pythonからプログラムを実行する場合
-
-PythonからMySQLへ接続する場合はターミナルにて以下のコマンドを入力してください.
-
-・python3 src/python/research-matching.py
-
-## test-data.sqlからデータを登録する場合
-
-test-data.sqlを用いてMySQLへ接続する場合はターミナルにて以下のコマンドを入力してください.
-
-・mysql --protocol=TCP -h 127.0.0.1 -P 3306 -u sensei_app -p < database/test-data.sql
-
-## データを入力する場合
-
-Sensei_Zukan（データベース）には以下のテーブルがあります.
-
-適切なテーブルにデータを追加してください.
-
-・Teachers（先生の情報）
-
-・Research（研究分野・キーワード）
-
-・Subjects（研究に必要な科目）
-
-・Elements（研究相談の頻度・雰囲気）
-
-★ 主キー
-
-☆ 外部キー
-
-### Teachers（テーブル）
-
-・Teacher_ID（先生の番号）★
-
-・Zukan_Number（先生図鑑の番号） 
-
-・Last_Name（名字）
-
-・First_Name（名前）
-
-・Department（学科）
-
-### Research（テーブル）
-
-・Research_ID（整理番号）★
-
-・Teacher_ID（先生の番号）☆
-
-・Field（研究分野・キーワード）
-
-### Subjects（テーブル）
-
-・Subject_ID（整理番号）★
-
-・Teacher_ID（先生の番号）☆
-
-・Subject（研究に必要な科目）
-
-### Elements（テーブル）
-
-・Element_ID（整理番号）★
-
-・Teacher_ID（先生の番号）☆
-
-・Interview_Frequency（研究相談の頻度）
-
-・Atmosphere（研究室の雰囲気）
